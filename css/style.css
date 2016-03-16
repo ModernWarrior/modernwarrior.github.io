@@ -75,6 +75,7 @@ input{
 .workout-img{
 	width:100%;
 	max-width:992px;
+	padding-bottom:15px;
 }
 
 .banner{
