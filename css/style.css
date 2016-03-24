@@ -1,3 +1,12 @@
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
 html, body{
 	margin:0;
 	padding:0;
@@ -11,9 +20,9 @@ html, body{
 .container{
 	width:100%;
 	height:100%;
-	max-width:960px;
+	/*max-width:960px;*/ /*maybe REACTIVATE this*/
 	/*min-width:320px;*/
-	margin:0 auto;
+	/*margin:0 auto;*/
 }
 
 h1{
@@ -22,6 +31,7 @@ h1{
 }
 
 h2{
+	padding-bottom:10px;
 	font-size:1.7em;
 	text-align:center;
 }
@@ -67,20 +77,33 @@ form{
 }
 
 input{
-	font-size:3em;
 	width:100px;
 	height:70px;
+	text-align:center;
+	font-size:3em;
+	background-color:#FFF;
 }
+ 
+/**COLUMNS**/
+
+.col-2{
+	width:20%;
+	float:left;
+}
+
+.col-4{
+	width:40%;
+	float:left;
+}
+
+/**END COLUMNS**/
 
 .workout-img{
 	width:100%;
-	max-width:992px;
+	max-width:600px;
 	padding-bottom:15px;
 }
 
-.banner{
-	max-width:100%;
-}
 
 /**HOME PAGE**/
 
@@ -102,12 +125,24 @@ img.front-icon {
 	height:auto;
 }
 
+/**STAT PAGE**/
+
+.stat-name{
+	font-size:1.2em;
+	text-align:left;
+
+}
+
 /**HOME BUTTON**/
 
 .btn-row{
 	width:100%;
-	margin-top:25px;
+	height:100%;
+	padding-top:25px;
+	z-index:2;
+	position:absolute;
 	text-align:center;
+	background-color:rgba(0,0,0,.8);
 }
 
 .home-btn{
@@ -196,6 +231,15 @@ a.challenge-btn{
 	
 }
 
+.next-form{
+	margin:45% auto;
+	width:75%;
+	max-width:400px;
+	background-color:#FFCC00;
+	padding-top:30px;
+	padding-bottom:40px;
+}
+
 
 .next-btn{
 
@@ -211,7 +255,6 @@ a.challenge-btn{
 }
 
 a.next-btn{
-	margin-left:10px;
 	color:white;
 	text-decoration:none;	
 	display:inline-block;
@@ -280,7 +323,26 @@ div.complete-display{
 
 .time-row{
 	height:20%;
-	text-align:right;
+/*	margin-left:75%;
+*/	text-align:right;
+}
+
+.pause{
+	width:10%;
+	padding-right:5px;
+	float:right;
+}
+
+.play{
+	width:10%;
+	padding-right:5px;
+	float:right;
+}
+
+.stop{
+	width:10%;
+	padding-right:5px;
+	float:right;
 }
 
 #timer{
@@ -288,9 +350,7 @@ div.complete-display{
 	text-align:center;
 }
 
-.stop{
-	margin-right:7%;
-}
+
 
 .time-display{
 	text-align:center;
@@ -317,7 +377,7 @@ div.complete-display{
 
 /**SETTINGS**/
 
-.focus-text{
+/*.focus-text{
 
 }
 
@@ -328,19 +388,15 @@ div.complete-display{
 	width:33%;
 	display:inline-block;
 }
-
-/**API**/
-#inspiration img{
-	width:250px;
-	/*max-width:100%;*/
-	padding:25px;
-	float:left;
-}
-
+*/
 
 @media(max-width:795px){
 	.icon{width:100%;}
 	.front-row{margin-top:20%;}
 	.front-icon{padding:0;}
 	.focus-text{padding-left:15px; padding-right:15px;}
+}
+
+@media(min-width:769px){
+	.next-form{margin:25% auto;}
 }
