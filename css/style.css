@@ -37,7 +37,7 @@ h2{
 }
 
 p{
-	font-size:1.2em;
+	font-size:13px;
 	text-align:center;
 }
 
@@ -87,13 +87,34 @@ input{
 /**COLUMNS**/
 
 .col-2{
-	width:20%;
+	width:15%;
+	padding-right:3px;
+	float:left;
+/*	font-size:13px;
+*/}
+
+.col-4{
+	width:33.3%;
 	float:left;
 }
 
-.col-4{
-	width:40%;
+.col-3{
+	width:30%;
+	padding-left:10px;
 	float:left;
+}
+
+.stat-top-row{
+	width:30.5%;
+	float:left;
+}
+
+.stat-top-row p{
+	text-align:left;
+}
+
+.stat-chart{
+	width:100%;
 }
 
 /**END COLUMNS**/
@@ -128,10 +149,11 @@ img.front-icon {
 /**STAT PAGE**/
 
 .stat-name{
-	font-size:1.2em;
+	font-size:13px;
 	text-align:left;
 
 }
+
 
 /**HOME BUTTON**/
 
@@ -375,6 +397,12 @@ div.complete-display{
 }
 
 
+/**STAT PAGE**/
+.description{
+	padding-bottom:35px;
+}
+
+
 /**SETTINGS**/
 
 /*.focus-text{
@@ -390,12 +418,33 @@ div.complete-display{
 }
 */
 
-@media(max-width:795px){
+@media(min-width:992px){
+	p{font-size:16px;}
+	.stat-name{font-size:16px;}
+	.round1{font-size:16px;}
+	.round2{font-size:16px;}
+}
+
+@media(min-width:768px) and (max-width:991px){
+	p{font-size:16px;}
+	.stat-name{font-size:16px;}
+	.round1{font-size:16px;}
+	.round2{font-size:16px;}
+
 	.icon{width:100%;}
 	.front-row{margin-top:20%;}
 	.front-icon{padding:0;}
 	.focus-text{padding-left:15px; padding-right:15px;}
 }
+
+
+@media(max-width:360px){
+	p{font-size:12px;}
+	.stat-name{font-size:12px;}
+	.round1{font-size:12px;}
+	.round2{font-size:12px;}
+}
+
 
 @media(min-width:769px){
 	.next-form{margin:25% auto;}
