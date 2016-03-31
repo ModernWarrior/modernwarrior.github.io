@@ -270,6 +270,14 @@ $(document).ready(function(){
 	$('.dipsround1').append(dipcount1);
 	$('.dipsround2').append(dipcount2);
 	$('.pushupround1last').append(pushupcount1Last);
+	$('.pushupround2last').append(pushupcount2Last);
+	$('.militaryround1last').append(militarycount1Last);
+	$('.militaryround2last').append(militarycount2Last);
+	$('.wideround1last').append(widecount1Last);
+	$('.wideround2last').append(widecount2Last);
+	$('.dipsround1last').append(dipcount1Last);
+	$('.dipsround2last').append(dipcount2Last);
+
 
 	//EXERCISE ROUTINE CYCLE
 	if (runWorkout == 1){
@@ -431,13 +439,14 @@ $(document).ready(function(){
 				timer = 7000;
 				cycle = 7;
 				updateUser("cycle",cycle);
-				console.log("level7");
+				var clock = setInterval(workoutProgram,999);
 				var delayWorkout = setTimeout(delay4,11000);
 			 	prepareDelay4 = setTimeout(prepareDelay4,8000);
 				delaySwitch = true;
 				$('.exercise-title').html('Knee Strikes');
 				$('.exercise-icon').html('<img class="workout-img" src="img/Knees.gif">');
 				$('.exercise-icon').css('visibility','visible');
+				hideComplete=true;
 
 				function prepareDelay4(){
 					$('.exercise-title').html('Prepare');
@@ -476,14 +485,14 @@ $(document).ready(function(){
 			};
 			}else if ( cycle == 9 ){
 				timer = 12000;
-				cycle = 3
+				cycle = 9
 				updateUser("cycle",cycle);
 				var clock = setInterval(workoutProgram, 999);
 				var delayWorkout = setTimeout(delay2,11000);
 				prepareDelay5 = setTimeout(prepareDelay5,8000);
 				delaySwitch = true;
 				$('exercise-title').html('Break!');
-				$('exercise-icon').show();
+				$('.exercise-icon').css('visibility','visible');				
 
 				function delay5(){
 					if(delaySwitch === true && cycle === 9){
@@ -619,15 +628,15 @@ $(document).ready(function(){
 			
 		});
 
-		$('.exercise2').click(function(){
-			cycle = 2;
-			updateUser("cycle",cycle);
-			timer = 6000;
-			$('.exercise-title').html('Pushups');
-			clock = setInterval(workoutProgram, 1000);
-			console.log('I am running from the button');
-			$('.next').html('<a class="exercise3 next-btn" href="timer.html">Level Up</a>');
-		});
+		// $('.exercise2').click(function(){
+		// 	cycle = 2;
+		// 	updateUser("cycle",cycle);
+		// 	timer = 6000;
+		// 	$('.exercise-title').html('Pushups');
+		// 	clock = setInterval(workoutProgram, 1000);
+		// 	console.log('I am running from the button');
+		// 	$('.next').html('<a class="exercise3 next-btn" href="timer.html">Level Up</a>');
+		// });
 
 		// $('.exercise3').click(function(){
 		// 	cycle = 3;
@@ -642,15 +651,15 @@ $(document).ready(function(){
 
 		// });
 
-		$('.exercise4').click(function(){
-			cycle = 4;
-			updateUser("cycle",cycle);
-		});
+		// $('.exercise4').click(function(){
+		// 	cycle = 4;
+		// 	updateUser("cycle",cycle);
+		// });
 
-		$('.exercise5').click(function(){
-			cycle = 5;
-			updateUser("cycle",cycle);
-		});
+		// $('.exercise5').click(function(){
+		// 	cycle = 5;
+		// 	updateUser("cycle",cycle);
+		// });
 
 	
 };
