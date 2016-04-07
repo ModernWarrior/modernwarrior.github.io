@@ -1,4 +1,5 @@
 * {
+<<<<<<< HEAD
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -7,6 +8,16 @@
 	vertical-align: baseline;
 	background: transparent;
 }
+=======
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+>>>>>>> origin/master
 html, body{
 	width:100%;
 	height:100%;
@@ -35,8 +46,12 @@ h1{
 
 h2{
 	padding-bottom:10px;
+<<<<<<< HEAD
 	padding-top:30px;
 	font-size:1.5em;
+=======
+	font-size:1.7em;
+>>>>>>> origin/master
 	text-align:center;
 }
 
@@ -86,10 +101,28 @@ input{
 	text-align:center;
 	font-size:3em;
 	background-color:#FFF;
+<<<<<<< HEAD
+=======
+}
+ 
+/**COLUMNS**/
+
+.col-2{
+	width:15%;
+	padding-right:3px;
+	float:left;
+/*	font-size:13px;
+*/}
+
+.col-4{
+	width:33.3%;
+	float:left;
+>>>>>>> origin/master
 }
  
 /****COLUMNS****/
 
+<<<<<<< HEAD
 .col-2{
 	width:15%;
 	padding-right:3px;
@@ -116,6 +149,35 @@ input{
 .stat-top-row p{
 	text-align:left;
 }
+=======
+.col-3{
+	width:30%;
+	padding-left:10px;
+	float:left;
+}
+
+.stat-top-row{
+	width:30.5%;
+	float:left;
+}
+
+.stat-top-row p{
+	text-align:left;
+}
+
+.stat-chart{
+	width:100%;
+}
+
+/**END COLUMNS**/
+
+.workout-img{
+	width:100%;
+	max-width:600px;
+	padding-bottom:15px;
+}
+
+>>>>>>> origin/master
 
 .stat-chart{
 	width:100%;
@@ -169,6 +231,28 @@ input{
 	background-color:#FFCC00;
 	padding:10px 0px 10px;
 
+<<<<<<< HEAD
+=======
+/**STAT PAGE**/
+
+.stat-name{
+	font-size:13px;
+	text-align:left;
+
+}
+
+
+/**HOME BUTTON**/
+
+.btn-row{
+	width:100%;
+	height:100%;
+	padding-top:25px;
+	z-index:2;
+	position:absolute;
+	text-align:center;
+	background-color:rgba(0,0,0,.8);
+>>>>>>> origin/master
 }
 
 img.front-icon {
@@ -232,7 +316,44 @@ a.challenge-btn{
 	display:inline-block;
 	text-align:center;
 	color:white;
+<<<<<<< HEAD
 	font-size:1.3em;	
+=======
+	font-size:1.3em;
+	
+}
+
+.next-form{
+	margin:45% auto;
+	width:75%;
+	max-width:400px;
+	background-color:#FFCC00;
+	padding-top:30px;
+	padding-bottom:40px;
+}
+
+
+.next-btn{
+
+	padding:10px;
+	background-color:black;
+	border-radius:50px;
+}
+
+.next-btn:hover{
+	padding:10px;
+	background-color:darkgray;
+	border-radius:50px;
+}
+
+a.next-btn{
+	color:white;
+	text-decoration:none;	
+	display:inline-block;
+	width:100px;
+	font-size:1.3em;
+	text-align:center;
+>>>>>>> origin/master
 }
 
 /****CHALLENGE PAGE****/
@@ -301,11 +422,37 @@ a.back:hover{
 		/*float:left;*/
 	}
 
+<<<<<<< HEAD
 	.home-btn:hover{
 		padding:10px;
 		background-color:#CFCECE;
 		border-radius:50px;
 	}
+=======
+.time-row{
+	height:20%;
+/*	margin-left:75%;
+*/	text-align:right;
+}
+
+.pause{
+	width:10%;
+	padding-right:5px;
+	float:right;
+}
+
+.play{
+	width:10%;
+	padding-right:5px;
+	float:right;
+}
+
+.stop{
+	width:10%;
+	padding-right:5px;
+	float:right;
+}
+>>>>>>> origin/master
 
 	/**COMPLETE FORM**/
 	.next-form{
@@ -317,6 +464,10 @@ a.back:hover{
 		padding-bottom:40px;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 	.next-btn{
 
@@ -445,8 +596,20 @@ a.back:hover{
 
 /**END STAT PAGE**/
 
+<<<<<<< HEAD
 
 /****MEDIA QUERIES****/
+=======
+/**STAT PAGE**/
+.description{
+	padding-bottom:35px;
+}
+
+
+/**SETTINGS**/
+
+/*.focus-text{
+>>>>>>> origin/master
 
 @media screen and ( max-height: 480px ){
     .cntrl-img{width:50px;}
@@ -462,12 +625,18 @@ a.back:hover{
 	.round2{font-size:16px;}
 	img.front-icon{max-width:100%;/*height:300px;width:300px;*/}
 }
+*/
 
+<<<<<<< HEAD
 @media(min-width:768px) and (max-width:991px){
+=======
+@media(min-width:992px){
+>>>>>>> origin/master
 	p{font-size:16px;}
 	.stat-name{font-size:16px;}
 	.round1{font-size:16px;}
 	.round2{font-size:16px;}
+<<<<<<< HEAD
 	/**HOME**/
 	.front-card{max-width:250px;padding:30px 0px 0px};
 	img.front-icon{max-width:100%;/*height:300px;width:300px;*/}
@@ -487,9 +656,17 @@ a.back:hover{
 	.stat-name{font-size:12px;}
 	.round1{font-size:12px;}
 	.round2{font-size:12px;}
+=======
+>>>>>>> origin/master
 }
 
+@media(min-width:768px) and (max-width:991px){
+	p{font-size:16px;}
+	.stat-name{font-size:16px;}
+	.round1{font-size:16px;}
+	.round2{font-size:16px;}
 
+<<<<<<< HEAD
 @media(min-width:769px){
 	.next-form{margin:25% auto;}
 	}
@@ -533,4 +710,23 @@ a.back:hover{
     font-weight: normal;
     font-style: normal;
 
+=======
+	.icon{width:100%;}
+	.front-row{margin-top:20%;}
+	.front-icon{padding:0;}
+	.focus-text{padding-left:15px; padding-right:15px;}
+}
+
+
+@media(max-width:360px){
+	p{font-size:12px;}
+	.stat-name{font-size:12px;}
+	.round1{font-size:12px;}
+	.round2{font-size:12px;}
+}
+
+
+@media(min-width:769px){
+	.next-form{margin:25% auto;}
+>>>>>>> origin/master
 }
