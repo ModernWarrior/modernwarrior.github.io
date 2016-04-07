@@ -9,16 +9,39 @@ $(document).ready(function(){
 	var currentExercise = 0;
 	var delaySwitch = false;
 	var hideComplete = false;
-	var pushUp1 = 0;
-	var military1 = 0;
-	var wide1 = 0;
-	var dip1 = 0;
-	var pushUp2 = 0;
-	var military2 = 0;
-	var wide2 = 0;
-	var dip2 = 0;
+	var pushupcount1 = '0';
+	var pushupcount1Last = '0'; //or leave undefined if something goes wrong
+	var militarycount1 = '0';
+	var militarycount1Last = '0';
+	var widecount1 = '0';
+	var widecount1Last = '0';
+	var dipcount1 = '0';
+	var dipcount1Last = '0'
+	var pushupcount2 = '0';
+	var pushupcount2Last = '0';
+	var militarycount2 = '0';
+	var militarycount2Last = '0';
+	var widecount2 = '0';
+	var widecount2Last = '0';
+	var dipcount2 = '0';
+	var dipcount2Last = '0';
 	var prepare = false;
-	var runWorkout = 1;
+	var runWorkout = 0;
+	
+	// var pushupText = ["Arms shoulder width apart", "Tigthen your abs", "Don't tuck in your chin!"];
+	// var number = 0;
+	// setInterval(change,3000);
+	// function change(){
+	// 	// $('.exercise-text') == pushupText[number];
+	// 	number++;
+	// 	console.log('number:' +number);
+	// 	if (number > pushupText.length-1){ 
+	// 		number = 0; 
+
+	// 		// number++;
+	// 	};
+	// }
+
 
 	/**USER SET UP**/
 	function updateUser(setting,value){
@@ -38,7 +61,6 @@ $(document).ready(function(){
 	 	return user;
 	 }
 
-	
 	//Time Calculator 
 	function getTimeRemaining(endtime){
 		//Date.parse is converting to milliseconds. Essentially I'm trying to build a calculator with the var time
@@ -61,7 +83,7 @@ $(document).ready(function(){
 	}
 
 	function workoutProgram(){
-		if ( cycle !== 0 && paused === false && runWorkout === 1 && timer >= 0){
+		if ( cycle !== 0 && paused === false && runWorkout === 1 && timer !== -800){
 			var time = timer;
 			// setInterval(test);
 			var time = getTimeRemaining(timer); 
@@ -76,20 +98,21 @@ $(document).ready(function(){
 			$('.complete-display').hide();
 			timer -= 999;
 			console.log(timer);
+			console.log('prepare: ' + prepareDelay1);
 		}else if (cycle !== 0 && stopped == true){
 			// $('#timer').css('visibility','hidden');
 			console.log('Stopped');
-			console.log('Trolling ya homie');
 			console.log(cycle);
 			console.log(timer);
 			$('.stop').hide();
 			$('.btn-row').show();
+			$('.exercise-icon').hide();
 			// isPaused = false;
 			// cycle=0;
 			// clearInterval(clock);
 			// $('#timer').hide;
 		}else{
-			console.log("You having a bad time homie");
+			console.log("Something has broken");
 			console.log(time);
 			};	
 
@@ -102,15 +125,10 @@ $(document).ready(function(){
 			clearInterval(clock);
 			console.log(cycle);
 		}else{
-			$('.preworkout').css('visibility','hidden');
+			// $('.preworkout').css('visibility','hidden');
 			$('.motivation').css('visibility','hidden' );
 		};
 	};//END RUN WORKOUT
-
-
-	// get the local storage user
-
-	
 
 	//USER SETTINGS - ROUTINES
 	if(currentUser.runWorkout){
@@ -128,28 +146,54 @@ $(document).ready(function(){
 	//EXERCISE SAVED DATA
 	if(currentUser.pushupcount1){
 		pushupcount1 = currentUser.pushupcount1;
-	}else(updateUser("pushupcount1",pushUp1))
+	}else(updateUser("pushupcount1",pushupcount1))
 	if(currentUser.militarycount1){
 		militarycount1 = currentUser.militarycount1;
-	}else updateUser("militarycount1",military1)
+	}else updateUser("militarycount1",militarycount1)
 	if(currentUser.widecount1){
 		widecount1 = currentUser.widecount1
-	}else updateUser("widecount1",wide1)
+	}else updateUser("widecount1",widecount1)
 	if(currentUser.dipcount1){
 		dipcount1 = currentUser.dipcount1;
-	}else(updateUser("dipcount1",dip1))
+	}else(updateUser("dipcount1",dipcount1))
 	if(currentUser.pushupcount2){
 		pushupcount2 = currentUser.pushupcount2;
-	}else(updateUser("pushupcount2",pushUp2))
+	}else(updateUser("pushupcount2",pushupcount2))
 	if(currentUser.militarycount2){
 		militarycount2 = currentUser.militarycount2;
-	}else(updateUser("militarycount2",military2))
+	}else(updateUser("militarycount2",militarycount2))
 	if(currentUser.widecount2){
 		widecount2 = currentUser.widecount2;
-	}else(updateUser("widecount2",wide2))
+	}else(updateUser("widecount2",widecount2))
 	if(currentUser.dipcount2){
 		dipcount2 = currentUser.dipcount2;
-	}else(updateUser("dipcount2",dip2));
+	}else(updateUser("dipcount2",dipcount2));
+
+	//LAST SAVED DATA
+	if(currentUser.pushupcount1Last){
+		pushupcount1Last = currentUser.pushupcount1Last;
+	}else(updateUser("pushupcount1Last",pushupcount1Last));
+	if(currentUser.militarycount1){
+		militarycount1Last = currentUser.militarycount1Last;
+	}else updateUser("militarycount1Last",militarycount1Last)
+	if(currentUser.widecount1Last){
+		widecount1Last = currentUser.widecount1Last
+	}else updateUser("widecount1Last",widecount1Last)
+	if(currentUser.dipcount1Last){
+	 	dipcount1Last = currentUser.dipcount1Last;
+	}else(updateUser("dipcount1Last",dipcount1Last))
+	if(currentUser.pushupcount2Last){
+	 	pushupcount2Last = currentUser.pushupcount2Last;
+	}else(updateUser("pushupcount2Last",pushupcount2Last))
+	if(currentUser.militarycount2Last){
+	 	militarycount2 = currentUser.militarycount2Last;
+	}else(updateUser("militarycount2Last",militarycount2Last))
+	if(currentUser.widecount2Last){
+	 	widecount2Last = currentUser.widecount2Last;
+	}else(updateUser("widecount2Last",widecount2Last))
+	if(currentUser.dipcount2Last){
+	 	dipcount2Last = currentUser.dipcount2Last;
+	}else(updateUser("dipcount2Last",dipcount2Last));
 
 	//DEFAULT SETTINGS
 	$('.btn-row').hide();
@@ -182,39 +226,72 @@ $(document).ready(function(){
 
 
 	//Button Controls
-		$('.stop-btn').click(function(){
-			cycle = 0;
-			$('#timer').html('Stopped');
-			updateUser("cycle",cycle);
-			clearTimeout(delayWorkout);
-			runWorkout = 0;
-			updateUser("runWorkout",runWorkout);			
-		});
+	$('.stop-btn').click(function(){
+		cycle = 0;
+		$('#timer').html('Stopped');
+		updateUser("cycle",cycle);
+		// clearTimeout();
+		clearInterval();
+		runWorkout = 0;
+		updateUser("runWorkout",runWorkout);
+		$('.btn-row').show();
+		// $('.exercise-icon').show();	
+		$('.exercise-icon').css('visibility','hidden');
+		$('.next-form').css('visibility','hidden');
+		stopped = true;		
+	});
 
-		$('.upperbody').click(function(){
-			runWorkout = 1;
-			updateUser("runWorkout",runWorkout);
-			cycle = 1;
-			updateUser("cycle",cycle);
-		})
+	$('.upperbody').click(function(){
+		runWorkout = 1;
+		updateUser("runWorkout",runWorkout);
+		cycle = 1;
+		updateUser("cycle",cycle);
+		stopped = false;
+		$('.exercise-icon').css('visibility','hidden');
+	})
 
-		$('.home-btn').click(function(){
-			runWorkout = 0;
-			updateUser("runWorkout",0);
-		})
+	$('.home-btn').click(function(){
+		runWorkout = 0;
+		updateUser("runWorkout",0);
+	})
 
-		$('.pause-btn').click(function(){
-			paused = true;
-			cycle = currentUser.cycle;
-			clearInterval(clock);
-			// clearTimeout(delayWorkout);
+	$('.pause-btn').click(function(){
+		paused = true;
+		// cycle = currentUser.cycle;
+		clearInterval(clock);
+		// clearTimeout(prepareDelay1);
+		// clearTimeout(delayWorkout);
+		// clearTimeout(prepareDelay1);
+		// clearTimeout(prepareDelay2);
 
-		});
+	});
 
-		$('.play-btn').click(function(){
-			paused = false;
-			setInterval(workoutProgram,1000)
-		});
+	$('.play-btn').click(function(){
+		paused = false;
+		setInterval(workoutProgram,1000)
+		return;
+		setTimeout(delay,9000);
+		// setTimeout(prepareDelay1,6000);
+	});
+
+	//STAT DISPLAY
+	$('.pushupround1').append(pushupcount1);
+	$('.pushupround2').append(pushupcount2);
+	$('.militaryround1').append(militarycount1);
+	$('.militaryround2').append(militarycount2);
+	$('.wideround1').append(widecount1);
+	$('.wideround2').append(widecount2);
+	$('.dipsround1').append(dipcount1);
+	$('.dipsround2').append(dipcount2);
+	$('.pushupround1last').append(pushupcount1Last);
+	$('.pushupround2last').append(pushupcount2Last);
+	$('.militaryround1last').append(militarycount1Last);
+	$('.militaryround2last').append(militarycount2Last);
+	$('.wideround1last').append(widecount1Last);
+	$('.wideround2last').append(widecount2Last);
+	$('.dipsround1last').append(dipcount1Last);
+	$('.dipsround2last').append(dipcount2Last);
+
 
 	//EXERCISE ROUTINE CYCLE
 	if (runWorkout == 1){
@@ -223,58 +300,61 @@ $(document).ready(function(){
 			// updateUser("cycle",cycle);
 			var clock = setInterval(workoutProgram, 999);
 			var delayWorkout = setTimeout(delay,9000);
-			var prepareDelay = setTimeout(prepareDelay1,6000);
+			var prepareDelay = setTimeout(prepareDelay1,3000);
 			console.log("level 1"); //console log just level to test
-			 // imageEnter(sendUp);
+			$('.exercise-title').html('Warm Up!');
+			$('.exercise-icon').html('<img class="workout-img" src="img/JumpingJacks.gif">');
 			timer = 5000;
-			// $('.exercise-title').hide();
-			// $('.exercise-icon').hide();
 			$('.btn-row').hide();
 			delaySwitch = true;
 			hideComplete = true;
-			// if ( timer >= 0){
-			// 	prepare = true;
-			// }
-
-			function prepareDelay1(){
+			paused = false;
+			console.log('delay: ' + delay)
+		if (paused = false){
+			var prepareDelay1 = function prepareDelay1(){
 				$('.exercise-title').html('Prepare');
 				$('#timer').css('visibility','hidden');
 				$('.exercise-icon').html('<img class="workout-img" src="img/Pushups.gif">');
 				timer = 1999;
 				console.log("I work the prepare delay");
 			};
-				function delay(){
+				var delay = function delay(){
 					if (delaySwitch === true && cycle === 1){
 						clock = clearInterval(clock);
 						cycle = 2;
 						updateUser("cycle",cycle);
 						$('.exercise-title').html('Pushups');
 						$('.exercise-icon').show();
+						// $('.exercise-text').html(pushupText[number]);
+						// change();
 						timer = 0;
 						timer = 12000;
 						clock = setInterval(workoutProgram, 999);
 						$('#timer').css('visibility','visible');
 						console.log("pushy pushy");
-						
 						hideComplete = false;
 						// delaySwitch = false;
-						$('.next-form').html('<form id="exercise-count"> <input id="pushupcount1" type="number" name="pushupcount"></form>')
-						$('.next').html('<a class="exercise3 next-btn" href="timer.html">Level Up</a>');
-						
+						$('.next-form').prepend('<p class="goodjob">Good Job! How Many Did You Do? </p>');
+						$('.next-form').append('<form id="exercise-count"> <input id="pushupcount1" type="number" name="pushupcount"></form>')
+						$('.next').appendTo($('.next-form')).html('<a class="exercise3 next-btn" href="timer.html">SAVE</a>');
 						// var delayWorkout = setTimeout(delay,5950);
-						
 						cycle = 3;
 						updateUser("cycle",cycle);
+
 						$(".exercise3.next-btn").click(function(){
 							// delaySwitch = false;
-							pushUp1 = document.getElementById("pushupcount1").value;
+							pushupcount1Last = pushupcount1;
+							pushupcount1 = document.getElementById("pushupcount1").value;
 							console.log("I work");
-							updateUser("pushupcount1", pushUp1);
+							updateUser("pushupcount1",pushupcount1);
+							updateUser("pushupcount1Last",pushupcount1Last);
+							// updateUser("pushupcount1Last",pushUp1);
 						});
 					}else{
 						console.log('No delay');
 					}
 				};				
+			};
 
 		}else if ( cycle == 3 ){
 			$('#timer').css('visibility','visible');
@@ -292,7 +372,7 @@ $(document).ready(function(){
 
 			function prepareDelay2(){
 				$('.exercise-title').html('Prepare');
-				 $('#timer').css('visibility','hidden');
+				$('#timer').css('visibility','hidden');
 				$('.exercise-icon').html('<img class="workout-img" src="img/MilitaryPushups.gif">');
 				timer = 1999;
 			};
@@ -311,15 +391,16 @@ $(document).ready(function(){
 					$('#timer').css('visibility','visible');
 
 					hideComplete = false;
-					$('.next-form').html('<form id="exercise-count"> <input id="militarycount1" type="number" name="militarycount"></form>')
-					$('.next').html('<a class="exercise5 next-btn" href="timer.html">Level Up</a>');
+					$('.next-form').append('<form id="exercise-count"> <input id="militarycount1" type="number" name="militarycount"></form>')
+					$('.next').appendTo ($('.next-form')).html('<a class="exercise5 next-btn" href="timer.html">Level Up</a>');
 					cycle = 5;
 					updateUser("cycle",cycle);
 					$(".exercise5.next-btn").click(function(){
-						military1 = document.getElementById("militarycount1").value;
-						console.log("I work");
-						updateUser("militarycount1", military1);
-						});
+						militarycount1Last = militarycount1;
+						militarycount1 = document.getElementById("militarycount1").value;
+						updateUser("militarycount1", militarycount1);
+						updateUser("militarycount1Last",militarycount1Last);
+					});
 				}else{
 					console.log('No delay part two');
 				}
@@ -359,14 +440,16 @@ $(document).ready(function(){
 					$('#timer').css('visibility','visible');
 					hideComplete = false;
 
-					$('.next-form').html('<form id="exercise-count"> <input id="widecount1" type="number" name="widecount"></form>')
-					$('.next').html('<a class="exercise7 next-btn" href="timer.html">Level Up</a>');
+					$('.next-form').append('<form id="exercise-count"> <input id="widecount1" type="number" name="widecount"></form>')
+					$('.next').appendTo ($('.next-form')).html('<a class="exercise7 next-btn" href="timer.html">Level Up</a>');
 					cycle = 7;
 					updateUser("cycle",cycle);
 					$(".exercise7.next-btn").click(function(){
-						wide1 = document.getElementById("widecount1").value;
-						updateUser("widecount1", wide1);
-						});
+						widecount1Last = widecount1;
+						widecount1 = document.getElementById("widecount1").value;
+						updateUser("widecount1", widecount1);
+						updateUser("widecount1Last",widecount1Last);
+					});
 				}else{
 					console.log('No delay part three');
 					}
@@ -376,13 +459,14 @@ $(document).ready(function(){
 				timer = 7000;
 				cycle = 7;
 				updateUser("cycle",cycle);
-				console.log("level7");
+				var clock = setInterval(workoutProgram,999);
 				var delayWorkout = setTimeout(delay4,11000);
 			 	prepareDelay4 = setTimeout(prepareDelay4,8000);
 				delaySwitch = true;
 				$('.exercise-title').html('Knee Strikes');
 				$('.exercise-icon').html('<img class="workout-img" src="img/Knees.gif">');
 				$('.exercise-icon').css('visibility','visible');
+				hideComplete=true;
 
 				function prepareDelay4(){
 					$('.exercise-title').html('Prepare');
@@ -409,8 +493,11 @@ $(document).ready(function(){
 					cycle = 9;
 					updateUser("cycle",cycle);
 					$(".exercise9.next-btn").click(function(){
-						dip1 = document.getElementById("dipcount1").value;
-						updateUser("dipcount1", dip1);
+						dipcount1Last = dipcount1;
+						dipcount1 = document.getElementById("dipcount1").value;
+						updateUser("dipcount1", dipcount1);
+						updateUser("dipcount1Last", dipcount2Last);
+
 						});
 				}else{
 					console.log('No delay');
@@ -418,14 +505,14 @@ $(document).ready(function(){
 			};
 			}else if ( cycle == 9 ){
 				timer = 12000;
-				cycle = 3
+				cycle = 9
 				updateUser("cycle",cycle);
 				var clock = setInterval(workoutProgram, 999);
 				var delayWorkout = setTimeout(delay2,11000);
 				prepareDelay5 = setTimeout(prepareDelay5,8000);
 				delaySwitch = true;
 				$('exercise-title').html('Break!');
-				$('exercise-icon').show();
+				$('.exercise-icon').css('visibility','visible');				
 
 				function delay5(){
 					if(delaySwitch === true && cycle === 9){
@@ -442,9 +529,11 @@ $(document).ready(function(){
 					cycle = 11;
 					updateUser("cycle",cycle);
 					$(".exercise11.next-btn").click(function(){
-						pushUp2 = document.getElementById("pushupcount2").value;
-						updateUser("pushupcount2", pushUp2);
-						});
+						pushupcount2Last = pushupcount2;
+						pushcount2 = document.getElementById("pushupcount2").value;
+						updateUser("pushupcount2", pushcount2);
+						updateUser("pushupcount2Last", pushcount2Last);
+					});
 				}
 			};
 			}else if ( cycle == 11 ){
@@ -471,10 +560,11 @@ $(document).ready(function(){
 						cycle = 13;
 						updateUser("cycle",cycle);
 						$(".exercise13.next-btn").click(function(){
-							military2 = document.getElementById("militarycount2").value;
-							console.log("I work");
-							updateUser("militarycount2", military2);
-							});
+							militarycount2Last = militarycount2;
+							militarycount2 = document.getElementById("militarycount2").value;
+							updateUser("militarycount2", militarycount2);
+							updateUser("militarycount2Last",militarycount2Last);
+						});
 					}else{
 						console.log('No delay part two');
 					}
@@ -484,9 +574,6 @@ $(document).ready(function(){
 				timer = 9000;
 				$('.exercise-title').html('Hook/Uppercut');
 				$('.exercise-icon').html('<img class="workout-img" src="img/HookUppercut.gif">');
-
-				// delaySwitch = true;
-				// $('.next').html('<a class="exercise3 next-btn">Level Up</a>');
 
 				function delay7(){
 					if (delaySwitch === true && cycle === 13){
@@ -504,9 +591,12 @@ $(document).ready(function(){
 						cycle = 15;
 						updateUser("cycle",cycle);
 						$(".exercise15.next-btn").click(function(){
-							wide2 = document.getElementById("widecount2").value;
+							widecount2Last = widecount2;
+							widecount2 = document.getElementById("widecount2").value;
 							console.log("I work");
-							updateUser("widecount2", wide2);
+							updateUser("widecount2",widecount2);
+							updateUser("widecount2Last",widecount2Last);
+
 							});
 					}else{
 						console.log('No delay part two');
@@ -534,8 +624,11 @@ $(document).ready(function(){
 					cycle = 17;
 					updateUser("cycle",cycle);
 					$(".exercise17.next-btn").click(function(){
-						dip2 = document.getElementById("dipcount2").value;
-						updateUser("dipcount2", dip2);
+						dipcount2Last = dipcount2;
+						dipcount2 = document.getElementById("dipcount2").value;
+						updateUser("dipcount2", dipcount2);
+						updateUser("dipcount2Last",dipcount2Last);
+
 						cycle = 0; //Gotta make this 99 and have a finished script
 						updateUser("cycle",cycle);
 						hideComplete = false;
@@ -554,16 +647,17 @@ $(document).ready(function(){
 			
 			
 		});
+		var prepareDelay = setTimeout(prepareDelay1,3000);
 
-		$('.exercise2').click(function(){
-			cycle = 2;
-			updateUser("cycle",cycle);
-			timer = 6000;
-			$('.exercise-title').html('Pushups');
-			clock = setInterval(workoutProgram, 1000);
-			console.log('I am running from the button');
-			$('.next').html('<a class="exercise3 next-btn" href="timer.html">Level Up</a>');
-		});
+		// $('.exercise2').click(function(){
+		// 	cycle = 2;
+		// 	updateUser("cycle",cycle);
+		// 	timer = 6000;
+		// 	$('.exercise-title').html('Pushups');
+		// 	clock = setInterval(workoutProgram, 1000);
+		// 	console.log('I am running from the button');
+		// 	$('.next').html('<a class="exercise3 next-btn" href="timer.html">Level Up</a>');
+		// });
 
 		// $('.exercise3').click(function(){
 		// 	cycle = 3;
@@ -578,15 +672,15 @@ $(document).ready(function(){
 
 		// });
 
-		$('.exercise4').click(function(){
-			cycle = 4;
-			updateUser("cycle",cycle);
-		});
+		// $('.exercise4').click(function(){
+		// 	cycle = 4;
+		// 	updateUser("cycle",cycle);
+		// });
 
-		$('.exercise5').click(function(){
-			cycle = 5;
-			updateUser("cycle",cycle);
-		});
+		// $('.exercise5').click(function(){
+		// 	cycle = 5;
+		// 	updateUser("cycle",cycle);
+		// });
 
 	
 };
