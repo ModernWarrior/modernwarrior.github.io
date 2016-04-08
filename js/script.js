@@ -288,8 +288,8 @@ $(document).ready(function(){
 			cycle = 1;
 			// updateUser("cycle",cycle);
 			var clock = setInterval(workoutProgram, 999);
-			var delayWorkout = setTimeout(delay,9000);
-			var prepareDelay = setTimeout(prepareDelay1,6000);
+			delayWorkout = setTimeout(delay,9000);
+			prepareDelay = setTimeout(prepareDelay1,6000);
 			console.log("level 1"); //console log just level to test
 			$('.exercise-icon').html('<img class="workout-img" src="img/JumpingJacks.gif">');
 			timer = 5000;
