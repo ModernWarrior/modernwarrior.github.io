@@ -27,20 +27,8 @@ $(document).ready(function(){
 	var dipcount2Last = '0';
 	var prepare = false;
 	var runWorkout = 0;
-	
-	// var pushupText = ["Arms shoulder width apart", "Tigthen your abs", "Don't tuck in your chin!"];
-	// var number = 0;
-	// setInterval(change,3000);
-	// function change(){
-	// 	// $('.exercise-text') == pushupText[number];
-	// 	number++;
-	// 	console.log('number:' +number);
-	// 	if (number > pushupText.length-1){ 
-	// 		number = 0; 
-
-	// 		// number++;
-	// 	};
-	// }
+	var delay;
+	var prepareDelay1;
 
 
 	/**USER SET UP**/
@@ -83,10 +71,11 @@ $(document).ready(function(){
 	}
 
 	function workoutProgram(){
-		if ( cycle !== 0 && paused === false && runWorkout === 1 && timer !== -800){
+		if ( cycle !== 0 && paused === false && runWorkout === 1 && timer >= 0){
 			var time = timer;
 			// setInterval(test);
 			var time = getTimeRemaining(timer); 
+
 			// console.log(time);
 			$('#timer').text(time.minutes + ":" + time.seconds );
 			// $('#timer').css('visibility','visible');
@@ -98,7 +87,6 @@ $(document).ready(function(){
 			$('.complete-display').hide();
 			timer -= 999;
 			console.log(timer);
-			console.log('prepare: ' + prepareDelay1);
 		}else if (cycle !== 0 && stopped == true){
 			// $('#timer').css('visibility','hidden');
 			console.log('Stopped');
@@ -112,7 +100,7 @@ $(document).ready(function(){
 			// clearInterval(clock);
 			// $('#timer').hide;
 		}else{
-			console.log("Something has broken");
+			console.log("Something broke.");
 			console.log(time);
 			};	
 
@@ -125,7 +113,7 @@ $(document).ready(function(){
 			clearInterval(clock);
 			console.log(cycle);
 		}else{
-			// $('.preworkout').css('visibility','hidden');
+			$('.preworkout').css('visibility','hidden');
 			$('.motivation').css('visibility','hidden' );
 		};
 	};//END RUN WORKOUT
@@ -230,14 +218,14 @@ $(document).ready(function(){
 		cycle = 0;
 		$('#timer').html('Stopped');
 		updateUser("cycle",cycle);
-		// clearTimeout();
+		clearTimeout();
 		clearInterval();
 		runWorkout = 0;
 		updateUser("runWorkout",runWorkout);
 		$('.btn-row').show();
 		// $('.exercise-icon').show();	
 		$('.exercise-icon').css('visibility','hidden');
-		$('.next-form').css('visibility','hidden');
+		$('.next-form').css('display','none');
 		stopped = true;		
 	});
 
@@ -259,7 +247,7 @@ $(document).ready(function(){
 		paused = true;
 		// cycle = currentUser.cycle;
 		clearInterval(clock);
-		// clearTimeout(prepareDelay1);
+		clearTimeout(prepareDelay1);
 		// clearTimeout(delayWorkout);
 		// clearTimeout(prepareDelay1);
 		// clearTimeout(prepareDelay2);
@@ -269,9 +257,10 @@ $(document).ready(function(){
 	$('.play-btn').click(function(){
 		paused = false;
 		setInterval(workoutProgram,1000)
-		return;
-		setTimeout(delay,9000);
+		
+		// setTimeout(delay,9000);
 		// setTimeout(prepareDelay1,6000);
+		// return;
 	});
 
 	//STAT DISPLAY
@@ -300,33 +289,27 @@ $(document).ready(function(){
 			// updateUser("cycle",cycle);
 			var clock = setInterval(workoutProgram, 999);
 			var delayWorkout = setTimeout(delay,9000);
-			var prepareDelay = setTimeout(prepareDelay1,3000);
+			var prepareDelay = setTimeout(prepareDelay1,6000);
 			console.log("level 1"); //console log just level to test
-			$('.exercise-title').html('Warm Up!');
 			$('.exercise-icon').html('<img class="workout-img" src="img/JumpingJacks.gif">');
 			timer = 5000;
 			$('.btn-row').hide();
 			delaySwitch = true;
 			hideComplete = true;
-			paused = false;
-			console.log('delay: ' + delay)
-		if (paused = false){
-			var prepareDelay1 = function prepareDelay1(){
+			function prepareDelay1(){
 				$('.exercise-title').html('Prepare');
 				$('#timer').css('visibility','hidden');
 				$('.exercise-icon').html('<img class="workout-img" src="img/Pushups.gif">');
 				timer = 1999;
 				console.log("I work the prepare delay");
 			};
-				var delay = function delay(){
+				function delay(){
 					if (delaySwitch === true && cycle === 1){
 						clock = clearInterval(clock);
 						cycle = 2;
 						updateUser("cycle",cycle);
 						$('.exercise-title').html('Pushups');
 						$('.exercise-icon').show();
-						// $('.exercise-text').html(pushupText[number]);
-						// change();
 						timer = 0;
 						timer = 12000;
 						clock = setInterval(workoutProgram, 999);
@@ -334,7 +317,6 @@ $(document).ready(function(){
 						console.log("pushy pushy");
 						hideComplete = false;
 						// delaySwitch = false;
-						$('.next-form').prepend('<p class="goodjob">Good Job! How Many Did You Do? </p>');
 						$('.next-form').append('<form id="exercise-count"> <input id="pushupcount1" type="number" name="pushupcount"></form>')
 						$('.next').appendTo($('.next-form')).html('<a class="exercise3 next-btn" href="timer.html">SAVE</a>');
 						// var delayWorkout = setTimeout(delay,5950);
@@ -354,7 +336,7 @@ $(document).ready(function(){
 						console.log('No delay');
 					}
 				};				
-			};
+			
 
 		}else if ( cycle == 3 ){
 			$('#timer').css('visibility','visible');
@@ -372,7 +354,7 @@ $(document).ready(function(){
 
 			function prepareDelay2(){
 				$('.exercise-title').html('Prepare');
-				$('#timer').css('visibility','hidden');
+				 $('#timer').css('visibility','hidden');
 				$('.exercise-icon').html('<img class="workout-img" src="img/MilitaryPushups.gif">');
 				timer = 1999;
 			};
@@ -647,7 +629,6 @@ $(document).ready(function(){
 			
 			
 		});
-		var prepareDelay = setTimeout(prepareDelay1,3000);
 
 		// $('.exercise2').click(function(){
 		// 	cycle = 2;
