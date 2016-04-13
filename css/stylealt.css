@@ -22,7 +22,7 @@ html, body{
 
 .container{
 	width:100%;
-	height:100%;
+	/*height:100%;*/
 	/*max-width:960px;*/ /*maybe REACTIVATE this*/
 	/*min-width:320px;*/
 	/*margin:0 auto;*/
@@ -89,14 +89,14 @@ form{
 	padding:25px;
 }
 
-input{
+/*input{
 	width:100px;
 	height:70px;
 	text-align:center;
 	font-size:3em;
 	background-color:#FFF;
 }
-
+*/
 textarea{
 	overflow:auto;
 }
@@ -507,6 +507,86 @@ a.back:hover{
 	text-align:left;
 }
 
+/**SETTINGS**/
+.setting-sub{
+	padding-top:0px;
+	padding-bottom:5px;
+}
+.form-input{
+	width:85%;
+	max-width:300px;
+	height:25px;
+	padding:8px;
+	padding-left:8px;
+	font-size:1em;
+	text-align:left;
+	margin-bottom:15px;
+	display:block;
+/*	width:100px;
+	height:70px;
+	text-align:center;
+	font-size:3em;*/
+	background-color:#FFF;
+	/*border-radius:35px;*/
+}
+input.age-txt{
+	width:17%;
+	max-width:42px;
+}
+
+p.age-title{
+	margin-right:14px;
+}
+
+input.weight-txt{
+	width:35%;
+	max-width:120px;
+}
+
+.form-floats{
+	float:left;
+	width:50%;
+}
+
+.clearfix{
+	clear:both;
+}
+
+fieldset{
+	text-align:center;
+}
+
+.auoption{
+	width:100%;
+	margin:auto;
+	padding-top:20px;
+	display:inline-block;
+}
+
+
+.radio-label{
+	display:inline-block;
+	vertical-align:top;
+	margin-right:3%;
+
+}
+
+.radio-input{
+	margin-top:8px;
+	margin-right:10px;
+	display:inline-block;
+	vertical-align:top;
+}
+
+.goal-label{
+	/*padding-right:10px;*/
+}
+
+.goal-input{
+	margin-left:7px;
+	margin-right:7px;
+}
+
 /**CONTACT**/
 
 #contact{
@@ -525,6 +605,7 @@ a.back:hover{
 	text-align:left;
 	margin-bottom:20px;
 	display:block;
+	background-color:#FFF;
 	/*border-radius:35px;*/
 
 }
@@ -532,11 +613,12 @@ a.back:hover{
 textarea.msg-txt{
 	background-color:#FFF;
 	padding-bottom:100px;
+	padding-left:8px;
 	width:87%;
 	max-width:300px;
 }
 
-p.form-txt{
+.form-txt{
 	text-align:left;
 	margin-right:5px;
 	margin-bottom:5px;
@@ -547,7 +629,7 @@ p.form-txt{
 
 form.contact-form{
 	padding:15px;
-	padding-top:55px;
+	padding-top:45px;
 
 }
 
@@ -566,6 +648,8 @@ textarea{
 
 .cnt-btn{
 	width:20%;
+	max-width:250px;
+	margin-top:10px;
 	/*height:20px;*/
 	padding:15px;
 	background-color:#FFCC00;
@@ -580,19 +664,6 @@ textarea{
 	opacity:.8;
 }
 
-input.age-txt{
-	width:15%;
-	float:left;
-
-}
-
-p.age-title{
-	margin-right:14px;
-}
-
-input.weight-txt{
-	width:15%;
-}
 
 /**ABOUT**/
 .logo-img{
@@ -627,7 +698,7 @@ input.weight-txt{
 	.cntrl-img{width:90px;margin-top:30px;}
 	/**CONTACT**/
 	#contact{max-width:100%;}
-	p.form-txt{font-size:20px;margin-left:1px;}
+	.form-txt{font-size:20px;margin-left:1px;}
 	.contact-form input{width:100%;max-width:900px;height:35px;}
 	textarea.msg-txt{width:101%;height:95px;max-width:900px;}
 	.cnt-btn{width:50%;margin-top:20px;margin-left:0px;font-size:25px;}

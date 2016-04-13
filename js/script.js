@@ -94,6 +94,8 @@ $(document).ready(function(){
 			console.log(timer);
 			$('.stop').hide();
 			$('.btn-row').show();
+			runWorkout = 0;
+			updateUser("runWorkout",0);
 			$('.exercise-icon').hide();
 			// isPaused = false;
 			// cycle=0;
@@ -102,13 +104,17 @@ $(document).ready(function(){
 		}else{
 			console.log("Something broke.");
 			console.log(time);
+			runWorkout = 0;
+			// updateUser("runWorkout",0); //May delete
 			};	
 
 		if (timer <= 0 && hideComplete === false){
 			$('.exercise-icon').css('visibility','hidden');
 			$('.complete-display').show();
+			$('.home-btn').css('display','none');
 			// $('#timer').css('visibility','hidden');
 			$('.stop').hide();
+			$('.pause').hide();
 			$('.btn-row').show();
 			clearInterval(clock);
 			console.log(cycle);
@@ -216,6 +222,7 @@ $(document).ready(function(){
 	//Button Controls
 	$('.stop-btn').click(function(){
 		cycle = 0;
+		updateUser("cycle",cycle)
 		$('#timer').html('Stopped');
 		updateUser("cycle",cycle);
 		clearTimeout();
@@ -288,8 +295,8 @@ $(document).ready(function(){
 			cycle = 1;
 			// updateUser("cycle",cycle);
 			var clock = setInterval(workoutProgram, 999);
-			delayWorkout = setTimeout(delay,9000);
-			prepareDelay = setTimeout(prepareDelay1,6000);
+			var delayWorkout = setTimeout(delay,9000);
+			var prepareDelay = setTimeout(prepareDelay1,6000);
 			console.log("level 1"); //console log just level to test
 			$('.exercise-icon').html('<img class="workout-img" src="img/JumpingJacks.gif">');
 			timer = 5000;

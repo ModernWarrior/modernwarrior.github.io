@@ -5,53 +5,94 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>prototype</title>
+		<title>Modern Warrior</title>
 		<link rel="stylesheet" href="css/style.css">
-		<script   src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="   crossorigin="anonymous"></script>
-		<script src="js/script.js"></script>
-		
+		<link rel="stylesheet" href="css/nav.css">	
 	</head>
 	
 	<body>
+		<nav id="menu">
+			<h2 class="nav-item">User Info</h2>
+			<h2 class="nav-item"><a href="index.html">Home</a></h2>
+			<h2 class="nav-item"><a href="timer.html">Routines</a></h2>
+			<h2 class="nav-item"><a href="stats.html">Stats</a></h2>
+			<h2 class="nav-item"><a href="timer.html">Exercises</a></h2>
+			<h2 class="nav-item"><a href="settings.html">Settings</a></h2>
+			<h2 class="nav-item"><a href="about.html">About</a></h2>
+			<h2 class="nav-item"><a href="contact.html">Contact</a></h2>
+		</nav>
+		<main id="panel">
+			<header>
+				<button class="toggle-button nohilite">☰</button>
+				<p class="nav-txt"></p>
+				<!--<h2>Panel</h2>-->
+			</header>
+		</main>
 
 		<div class="container">
-			<div id="header"><h1>Placeholder Nav</h1></div>
-			<div data-role="page" class="front-row">
-			<a class="upperbody left-card" href="timer.html">
-				<div class="front-card">
-						<img class="front-icon" src="img/ui/punch-icon.png">
-						<p class="card-text">Routines</p>					
+			<div class="fader">
+<!-- 			<div id="header"><h1>Placeholder Nav</h1></div>
+ -->			<div data-role="page" class="front-row home-top-row">
+					<a class="upperbody left-card" href="timer.html">
+						<div class="front-card">
+								<img class="front-icon" src="img/ui/punch-icon.png">
+								<p class="card-text">Routines</p>					
+						</div>
+					</a>
+					<a class="right-card" href="stats.html">	
+						<div class="front-card">
+								<img class="front-icon" src="img/ui/stats-icon.png">
+								<p class="card-text">Stats</p>					
+						</div>
+					</a>
 				</div>
-			<a class="stats" href="stats.html">	
-				<div class="front-card">
-						<img class="front-icon" src="img/ui/stats-icon.png">
-						<p class="card-text">Stats</p>					
+				<div data-role="page" class="front-row">
+					<a class="left-card" href="#">
+						<div class="front-card">
+								<img class="front-icon" src="img/ui/exercise-icon.png">
+								<p class="card-text">Exercises</p>					
+						</div>
+					</a>
+					<a class="right-card" href="settings.html">	
+						<div class="front-card">
+								<img class="front-icon" src="img/ui/setting-icon.png">
+								<p class="card-text">Settings</p>					
+						</div>
+					</a>
 				</div>
-			</a>
-			<a class="left-card" href="#">
-				<div class="front-card">
-						<img class="front-icon" src="img/ui/exercise-icon.png">
-						<p class="card-text">Exercises</p>					
+				<div data-role="page" class="front-row">
+					<a class="left-card" href="about.html">
+						<div class="front-card">
+								<img class="front-icon" src="img/ui/about-icon.png">
+								<p class="card-text">About</p>					
+						</div>
+					</a>
+					<a class="right-card" href="contact.html">	
+						<div class="front-card">
+								<img class="front-icon" src="img/ui/contact-icon.png">
+								<p class="card-text">Contact</p>					
+						</div>
+					</a>
 				</div>
-			<a class="stats" href="#">	
-				<div class="front-card">
-						<img class="front-icon" src="img/ui/setting-icon.png">
-						<p class="card-text">Settings</p>					
-				</div>
-			</a>
-			<a class="left-card" href="#">
-				<div class="front-card">
-						<img class="front-icon" src="img/ui/about-icon.png">
-						<p class="card-text">About</p>					
-				</div>
-			<a class="stats" href="#">	
-				<div class="front-card">
-						<img class="front-icon" src="img/ui/contact-icon.png">
-						<p class="card-text">Contact</p>					
-				</div>
-			</a>
-
+			</div><!--END FADER-->
 		</div><!--END CONTAINER-->
 
+		<script   src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="   crossorigin="anonymous"></script>
+
+		<script src="js/script.js"></script>
+		<script src="js/slideout.min.js"></script>
+		<script>
+		  var slideout = new Slideout({
+		    'panel': document.getElementById('panel'),
+		    'menu': document.getElementById('menu'),
+		    'padding': 256,
+		    'tolerance': 70
+		  });
+		  // Toggle button
+      document.querySelector('.toggle-button').addEventListener('click', function() {
+        slideout.toggle();
+        $(this).toggleClass('hilite nohilite');  	
+      });
+		</script>
 	</body>
 </html>
