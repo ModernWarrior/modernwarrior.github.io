@@ -86,7 +86,7 @@ img{
 
 form{
 	margin:0 auto;
-	padding:25px;
+	padding:15px;
 }
 
 /*input{
@@ -239,6 +239,9 @@ img.front-icon {
 	/*float:left;*/
 }
 
+.settings-txt{
+	display:inline-block;
+}
 
 /*a.home-btn{
 	display:inline-block;
@@ -587,6 +590,10 @@ fieldset{
 	margin-right:7px;
 }
 
+.gray{
+	color:#333;
+}
+
 /**CONTACT**/
 
 #contact{
@@ -696,6 +703,13 @@ textarea{
 	#timer{font-size:4em;}
 	h2{font-size:2.5em;}
 	.cntrl-img{width:90px;margin-top:30px;}
+	/**SETTINGS**/
+	.setting-sub{
+		text-align:left;
+	}
+	fieldset{
+		text-align:left;
+	}
 	/**CONTACT**/
 	#contact{max-width:100%;}
 	.form-txt{font-size:20px;margin-left:1px;}

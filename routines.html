@@ -5,17 +5,16 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>prototype</title>
+		<title>Modern Warrior</title>
 		<link rel="stylesheet" href="css/stylealt.css">
 		<link rel="stylesheet" href="css/nav.css">	
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900' rel='stylesheet' type='text/css'>
 	</head>
 	
-
 	<body>
 		<nav id="menu">
-			<h2 class="nav-item">Menu</h2>
-			<h2 class="nav-item"><a href="timer.html">Routines</a></h2>
+			<h2 class="nav-item">User Info</h2>
+			<h2 class="nav-item"><a href="index.html">Home</a></h2>
+			<h2 class="nav-item"><a href="routines.html">Routines</a></h2>
 			<h2 class="nav-item"><a href="stats.html">Stats</a></h2>
 			<h2 class="nav-item"><a href="timer.html">Exercises</a></h2>
 			<h2 class="nav-item"><a href="settings.html">Settings</a></h2>
@@ -25,30 +24,45 @@
 		<main id="panel">
 			<header>
 				<button class="toggle-button nohilite">☰</button>
-				<p class="nav-txt">Contact</p>
-				<!--<h2>Panel</h2>-->
+				<p class="nav-txt"></p>
 			</header>
 		</main>
+
 		<div class="container">
-			<div id="contact">
-				<form class="contact-form">
-					<p class="form-txt name-txt">Name:</p>
-					<input type="text" name="username">
-					<p class="form-txt email-txt">Email:</p>
-					<input type="text" name="email">
-					<p class="form-txt">Reason For Contacting:</p>
-					<select>
-						<option value="feedback">Feedback</option>
-						<option value="feature">Feature Request</option>
-						<option value="bug">Bug Report</option>
-					</select>
-					<p class="form-txt">Message:</p>
-					<textarea type="text" name="message" class="msg-txt"></textarea>
-					<a href="contact.html"><div class="cnt-btn">Send</div></a>
-				</form>
-			</div>
+			<div class="fader">
+				<div data-role="page" class="front-row home-top-row">
+					<a class="upperbody left-card" href="timer.html">
+						<div class="front-card margin-right">
+							<img class="front-icon" src="img/ui/upper-icon.png">
+							<p class="card-text">Upper Body</p>					
+						</div>
+					</a>
+					<a class="lowerbody right-card" href="timer.html">	
+						<div class="front-card">
+							<img class="front-icon" src="img/ui/stats-icon.png">
+							<p class="card-text">Lower Body</p>	
+						</div>
+					</a>
+				</div>
+				<div data-role="page" class="front-row">
+					<a class="cardio left-card" href="timer.html">
+						<div class="front-card margin-right">
+							<img class="front-icon" src="img/ui/exercise-icon.png">
+							<p class="card-text tight-space">Combat Cardio</p>
+						</div>
+					</a>
+					<a class="core right-card" href="timer.html">	
+						<div class="front-card">
+							<img class="front-icon" src="img/ui/setting-icon.png">
+							<p class="card-text">Core</p>
+						</div>
+					</a>
+				</div>
+			</div><!--END FADER-->
 		</div><!--END CONTAINER-->
+
 		<script   src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="   crossorigin="anonymous"></script>
+
 		<script src="js/script.js"></script>
 		<script src="js/slideout.min.js"></script>
 		<script>
@@ -64,8 +78,5 @@
         $(this).toggleClass('hilite nohilite');  	
       });
 		</script>
-
-		
 	</body>
-
 </html>

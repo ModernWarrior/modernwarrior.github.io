@@ -74,8 +74,11 @@
   text-transform:uppercase;
 }
 
+p.nav-txt{text-align:left;margin-left:45%;}
+
 @media(min-width:768px){
   p.nav-txt{font-size:1.8em;padding-top:25px;}
+  p.nav-txt{text-align:left;margin-left:45%;}
   .slideout-panel{height:75px;}
   .toggle-button{height:75px;width:75px;margin-left:20px;}
   .slideout-menu{max-width:600px;}
