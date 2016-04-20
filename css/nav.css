@@ -40,7 +40,7 @@
   margin-left:20px;
   /*padding-left:11px;
   padding-right:11px;*/
-  font-size: 2em;
+  font-size: 1.8em;
   color:#FFF;
   float:left;
 }
@@ -77,10 +77,10 @@
 p.nav-txt{text-align:left;margin-left:45%;}
 
 @media(min-width:768px){
-  p.nav-txt{font-size:1.8em;padding-top:25px;}
-  p.nav-txt{text-align:left;margin-left:45%;}
-  .slideout-panel{height:75px;}
-  .toggle-button{height:75px;width:75px;margin-left:20px;}
+  p.nav-txt{font-size:2.1em;padding-top:30px;}
+  p.nav-txt{text-align:left;margin-left:46%;}
+  .slideout-panel{height:90px;}
+  .toggle-button{height:90px;width:90px;margin-left:20px;font-size:40px;}
   .slideout-menu{max-width:600px;}
 /*  .front-card{max-width:250px;}
 card-text{font-size:1.9em;}*/
