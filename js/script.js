@@ -104,7 +104,7 @@ $(document).ready(function(){
 		}else{
 			console.log("Something broke.");
 			console.log(time);
-			// REMOVED 4/20 runWorkout = 0;
+			runWorkout = 0;
 			// updateUser("runWorkout",0); //May delete
 			};	
 
