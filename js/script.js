@@ -483,7 +483,7 @@ $(document).ready(function(){
 
 					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
 					$('.next-form').append('<form id="exercise-count"> <input id="dipcount1" type="number" name="dipcount"></form>')
-					$('.next').appendTo($('.next-form')).html('<a class="exercise7 next-btn" href="timer.html">Save</a>');
+					$('.next').appendTo($('.next-form')).html('<a class="exercise9 next-btn" href="timer.html">Save</a>');
 					cycle = 9;
 					updateUser("cycle",cycle);
 					$(".exercise9.next-btn").click(function(){
@@ -497,15 +497,26 @@ $(document).ready(function(){
 					}
 			};
 			}else if ( cycle == 9 ){
+				$('#timer').css('visibility','visible');
 				timer = 12000;
 				cycle = 9
 				updateUser("cycle",cycle);
 				var clock = setInterval(workoutProgram, 999);
-				var delayWorkout = setTimeout(delay98,11000);
-				prepareDelay5 = setTimeout(prepareDelay98,8050);
+				var delayWorkout = setTimeout(delay98,16000);
+				prepareDelay5 = setTimeout(prepareDelay98,1300);
 				delaySwitch = true;
 				$('exercise-title').html('Break!');
-				$('.exercise-icon').css('visibility','visible');				
+				$('exercise-title').css('visibility','visible')
+				$('.exercise-icon').css('visibility','visible');
+
+				function prepareDelay98(){
+					$('.exercise-title').html('Prepare');
+					$('#timer').css('visibility','hidden');
+					$('.exercise-icon').html('<img class="workout-img" src="img/Pushups.gif">');
+					timer = 1999;
+					console.log("I work the prepare delay");
+				};		
+				
 
 				function delay98(){
 					if(delaySwitch === true && cycle === 9){
@@ -513,23 +524,24 @@ $(document).ready(function(){
 					cycle = 10;
 					$('.exercise-title').html('Pushups');
 					$('.exercise-icon').show();
-					timer = 7000;
-					clock = setInterval(workoutProgram, 1000);
-					$('.exercise-icon').html('<img class="workout-img" src="img/Pushups.gif">');
+					$('#timer').css('visibility','visible');
+					timer = 0;
+					timer = 12000;
+					clock = setInterval(workoutProgram, 999);
 					hideComplete = false;
-					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
-					$('.next-form').html('<form id="exercise-count"> <input id="pushupcount2" type="number" name="pushupcount"></form>')
-					$('.next').html('<a class="exercise11 next-btn" href="timer.html">Save</a>');
+					$('.next-form').append('<form id="exercise-count"> <input id="pushupcount2" type="number" name="pushupcount"></form>')
+					$('.next').appendTo($('.next-form')).html('<a class="exercise11 next-btn" href="timer.html">SAVE</a>');
 					cycle = 11;
 					updateUser("cycle",cycle);
 					$(".exercise11.next-btn").click(function(){
 						pushupcount2Last = pushupcount2;
 						pushcount2 = document.getElementById("pushupcount2").value;
-						updateUser("pushupcount2", pushcount2);
-						updateUser("pushupcount2Last", pushcount2Last);
+						updateUser("pushupcount2", pushupcount2);
+						updateUser("pushupcount2Last", pushupcount2Last);
 					});
 				}
 			};
+			/**WORK FROM HERE 4.20 4:17 AM**/
 			}else if ( cycle == 11 ){
 			$('#timer').css('visibility','visible');
 			timer = 7000;
