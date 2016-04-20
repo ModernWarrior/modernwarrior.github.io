@@ -502,8 +502,8 @@ $(document).ready(function(){
 				cycle = 9
 				updateUser("cycle",cycle);
 				var clock = setInterval(workoutProgram, 999);
-				var delayWorkout = setTimeout(delay,16000);
-				prepareDelay = setTimeout(prepareDelay1,13000);
+				var delayWorkout = setTimeout(delay9,16000);
+				prepareDelay = setTimeout(prepareDelay9,13000);
 				delaySwitch = true;
 				$('exercise-title').html('Break!');
 				$('exercise-title').css('visibility','visible');
@@ -511,7 +511,7 @@ $(document).ready(function(){
 				$('.exercise-icon').css('visibility','visible');
 				hideComplete = true;
 
-				function prepareDelay1(){
+				function prepareDelay9(){
 					$('.exercise-title').html('Prepare');
 					$('#timer').css('visibility','hidden');
 					$('.exercise-icon').html('<img class="workout-img" src="img/Pushups.gif">');
@@ -519,7 +519,7 @@ $(document).ready(function(){
 					console.log("I work the prepare delay");
 				};		
 
-				function delay(){
+				function delay9(){
 					if(delaySwitch === true && cycle === 9){
 					clock = clearInterval(clock);
 					cycle = 10;
