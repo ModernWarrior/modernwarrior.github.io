@@ -373,6 +373,7 @@ a.back:hover{
 		padding:10px;
 		background-color:black;
 		border-radius:50px;
+		text-transform:uppercase;
 	}
 
 	.next-btn:hover{
@@ -396,6 +397,25 @@ a.back:hover{
 		font-weight:bold;
 		width:200px;
 		margin:0 auto;
+	}
+	/****COMPLETED****/
+	.done{
+		margin:25vh auto;
+/*		width:75%;
+*/		max-width:400px;
+		background-color:#FFCC00;
+		padding-top:60px;
+		padding-bottom:80px;
+	}
+
+	.donearea{
+		margin-top:50px;
+		text-align:center;
+	}
+
+	.done-text{
+		text-align:center;
+		color:#FFF;
 	}
 
 	/****TOP ROW****/
@@ -642,6 +662,7 @@ input.weight-txt{
 	#timer{font-size:4em;}
 	h2{font-size:2.5em;}
 	.cntrl-img{width:90px;margin-top:12px;}
+	.home-icon{max-width:275px;}
 	/**CONTACT**/
 	#contact{max-width:100%;}
 	p.form-txt{font-size:20px;margin-left:1px;}

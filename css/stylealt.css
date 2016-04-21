@@ -439,6 +439,7 @@ a.back:hover{
 		padding:10px;
 		background-color:black;
 		border-radius:50px;
+		text-transform:uppercase;
 	}
 
 	.next-btn:hover{
@@ -454,6 +455,28 @@ a.back:hover{
 		width:100px;
 		font-size:1.3em;
 		text-align:center;
+	}
+
+	/****COMPLETE****/
+	.done{
+		margin:25vh auto;
+		width:75%;
+		max-width:400px;
+		background-color:#FFCC00;
+		padding-top:60px;
+		padding-bottom:80px;
+/*		visibility:hidden
+*/	}
+
+	.donearea{
+		margin-top:50px;
+		text-align:center;
+	}
+
+	.done-text{
+		text-align:center;
+		font-size:21px;
+		color:#FFF;
 	}
 
 	/****TOP ROW****/
@@ -789,6 +812,8 @@ textarea{
 	.exercise-icon{height:80%;}
 	.exercise-text{font-size:1.8em;}
 	#timer{font-size:4em;}
+	.home-icon{max-width:275px;}
+
 	h2{font-size:2.5em;}
 	.cntrl-img{width:90px;margin-top:30px;}
 	/**STATS**/

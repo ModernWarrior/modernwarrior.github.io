@@ -101,7 +101,21 @@ $(document).ready(function(){
 			// cycle=0;
 			// clearInterval(clock);
 			// $('#timer').hide;
-		}else{
+		}else if (cycle == 99){
+				$('.btn-row').show();
+				$('#timer').css('visibility','invisible');
+				$('.exercise-icon').hide();
+				hideComplete = true;
+				$('.done').prepend('<p class="done-text">You Completed The Upper Body Routine!</p>');
+				$('.donearea').appendTo($('.done')).html('<a class="next-btn" href="index.html">DONE</a>');
+				$('.done').css('display','block');
+				$(".next-btn").click(function(){
+						runWorkout = 0;
+						updateUser("runWorkout",runWorkout)
+						clearTimeout();
+						clearInterval();
+					});
+			}else{
 			console.log("Something broke.");
 			console.log(time);
 			// runWorkout = 0;
@@ -167,7 +181,7 @@ $(document).ready(function(){
 	if(currentUser.pushupcount1Last){
 		pushupcount1Last = currentUser.pushupcount1Last;
 	}else(updateUser("pushupcount1Last",pushupcount1Last));
-	if(currentUser.militarycount1){
+	if(currentUser.militarycount1Last){
 		militarycount1Last = currentUser.militarycount1Last;
 	}else updateUser("militarycount1Last",militarycount1Last)
 	if(currentUser.widecount1Last){
@@ -191,6 +205,8 @@ $(document).ready(function(){
 
 	//DEFAULT SETTINGS
 	$('.btn-row').hide();
+	$('.done').css('display','none');
+
 
 	//SETTING TIMERS
 
@@ -242,6 +258,7 @@ $(document).ready(function(){
 		cycle = 1;
 		updateUser("cycle",cycle);
 		stopped = false;
+		hideComplete = true;
 		$('.exercise-icon').css('visibility','hidden');
 	})
 
@@ -355,10 +372,11 @@ $(document).ready(function(){
 			var delayWorkout = setTimeout(delay2,11000);
 			prepareDelay2 = setTimeout(prepareDelay2,8000);
 			delaySwitch = true;
+			hideComplete = true;
 			$('.exercise-title').html('Jab/Cross');
 			$('.exercise-icon').html('<img class="workout-img" src="img/JabCross.gif">');
 			$('.exercise-icon').css('visibility','visible');
-			hideComplete = true;
+			
 
 			function prepareDelay2(){
 				$('.exercise-title').html('Prepare');
@@ -382,7 +400,7 @@ $(document).ready(function(){
 
 					hideComplete = false;
 					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
-					$('.next-form').append('<form id="exercise-count"> <input id="militarycount1" type="number" name="militarycount"></form>')
+					$('.next-form').append('<form id="exercise-count"> <input id="militarycount1" type="number" name="militarycount1"></form>')
 					$('.next').appendTo ($('.next-form')).html('<a class="exercise5 next-btn" href="timer.html">Save</a>');
 					cycle = 5;
 					updateUser("cycle",cycle);
@@ -403,7 +421,7 @@ $(document).ready(function(){
 				updateUser("cycle",cycle);
 				var clock = setInterval(workoutProgram, 999);
 				var delayWorkout = setTimeout(delay3,11000);
-			 	prepareDelay3 = setTimeout(prepareDelay3,8050);
+			 	prepareDelay3 = setTimeout(prepareDelay3,8000);
 				delaySwitch = true;
 				$('.exercise-title').html('Hook/Uppercut');
 				$('.exercise-icon').html('<img class="workout-img" src="img/HookUppercut.gif">');
@@ -432,7 +450,7 @@ $(document).ready(function(){
 					hideComplete = false;
 
 					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
-					$('.next-form').append('<form id="exercise-count"> <input id="widecount1" type="number" name="widecount"></form>')
+					$('.next-form').append('<form id="exercise-count"> <input id="widecount1" type="number" name="widecount1"></form>')
 					$('.next').appendTo ($('.next-form')).html('<a class="exercise7 next-btn" href="timer.html">Save</a>');
 					cycle = 7;
 					updateUser("cycle",cycle);
@@ -498,18 +516,20 @@ $(document).ready(function(){
 			};
 			}else if ( cycle == 9 ){
 				$('#timer').css('visibility','visible');
+				timer = 0;
 				timer = 12000;
 				cycle = 9
 				updateUser("cycle",cycle);
 				var clock = setInterval(workoutProgram, 999);
-				var delayWorkout = setTimeout(delay98,16000);
-				prepareDelay5 = setTimeout(prepareDelay98,1300);
+				var delayWorkout = setTimeout(delay5,16000);
+				prepareDelay5 = setTimeout(prepareDelay5,13000);
 				delaySwitch = true;
-				$('exercise-title').html('Break!');
-				$('exercise-title').css('visibility','visible')
+				$('.exercise-title').html('Break!');
+				$('.exercise-title').css('visibility','visible');
 				$('.exercise-icon').css('visibility','visible');
+				hideComplete = true;
 
-				function prepareDelay98(){
+				function prepareDelay5(){
 					$('.exercise-title').html('Prepare');
 					$('#timer').css('visibility','hidden');
 					$('.exercise-icon').html('<img class="workout-img" src="img/Pushups.gif">');
@@ -517,8 +537,7 @@ $(document).ready(function(){
 					console.log("I work the prepare delay");
 				};		
 				
-
-				function delay98(){
+				function delay5(){
 					if(delaySwitch === true && cycle === 9){
 					clock = clearInterval(clock);
 					cycle = 10;
@@ -529,13 +548,14 @@ $(document).ready(function(){
 					timer = 12000;
 					clock = setInterval(workoutProgram, 999);
 					hideComplete = false;
-					$('.next-form').append('<form id="exercise-count"> <input id="pushupcount2" type="number" name="pushupcount"></form>')
+					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
+					$('.next-form').append('<form id="exercise-count"> <input id="pushupcount2" type="number" name="pushupcount2"></form>')
 					$('.next').appendTo($('.next-form')).html('<a class="exercise11 next-btn" href="timer.html">SAVE</a>');
 					cycle = 11;
 					updateUser("cycle",cycle);
 					$(".exercise11.next-btn").click(function(){
 						pushupcount2Last = pushupcount2;
-						pushcount2 = document.getElementById("pushupcount2").value;
+						pushupcount2 = document.getElementById("pushupcount2").value;
 						updateUser("pushupcount2", pushupcount2);
 						updateUser("pushupcount2Last", pushupcount2Last);
 					});
@@ -548,22 +568,22 @@ $(document).ready(function(){
 			cycle = 11
 			updateUser("cycle",cycle);
 			var clock = setInterval(workoutProgram, 999);
-			var delayWorkout = setTimeout(delay2,11000);
-			prepareDelay2 = setTimeout(prepareDelay2,8000);
+			var delayWorkout = setTimeout(delay6,11000);
+			prepareDelay6 = setTimeout(prepareDelay6,8000);
 			delaySwitch = true;
 			$('.exercise-title').html('Jab/Cross');
 			$('.exercise-icon').html('<img class="workout-img" src="img/JabCross.gif">');
 			$('.exercise-icon').css('visibility','visible');
 			hideComplete = true;
 
-			function prepareDelay2(){
+			function prepareDelay6(){
 				$('.exercise-title').html('Prepare');
-				 $('#timer').css('visibility','hidden');
+				$('#timer').css('visibility','hidden');
 				$('.exercise-icon').html('<img class="workout-img" src="img/MilitaryPushups.gif">');
 				timer = 1999;
 			};
 
-			function delay2(){
+			function delay6(){
 				if (delaySwitch === true && cycle === 11){
 					clock = clearInterval(clock);
 					cycle = 12;
@@ -578,45 +598,61 @@ $(document).ready(function(){
 
 					hideComplete = false;
 					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
-					$('.next-form').append('<form id="exercise-count"> <input id="militarycount1" type="number" name="militarycount"></form>')
-					$('.next').appendTo ($('.next-form')).html('<a class="exercise5 next-btn" href="timer.html">Save</a>');
+					$('.next-form').append('<form id="exercise-count"> <input id="militarycount2" type="number" name="militarycount2"></form>')
+					$('.next').appendTo ($('.next-form')).html('<a class="exercise13 next-btn" href="timer.html">Save</a>');
 					cycle = 13;
 					updateUser("cycle",cycle);
-					$(".exercise5.next-btn").click(function(){
-						militarycount1Last = militarycount1;
-						militarycount1 = document.getElementById("militarycount1").value;
-						updateUser("militarycount1", militarycount1);
-						updateUser("militarycount1Last",militarycount1Last);
+					$(".exercise13.next-btn").click(function(){
+						militarycount2Last = militarycount2;
+						militarycount2 = document.getElementById("militarycount2").value;
+						updateUser("militarycount2",militarycount2);
+						updateUser("militarycount2Last",militarycount2Last);
 					});
 				}else{
 					console.log('No delay part two');
 				}
 			};
 			}else if ( cycle == 13 ){
-				delaySwitch = true;
+				$('#timer').css('visibility','visible');
 				timer = 9000;
+				cycle = 13;
+				updateUser("cycle",cycle);
+				var clock = setInterval(workoutProgram,999);
+				var delayWorkout = setTimeout(delay7,13000);
+				prepareDelay7 = setTimeout(prepareDelay7,8000)
+				delaySwitch = true;
+				hideComplete = true;
 				$('.exercise-title').html('Hook/Uppercut');
 				$('.exercise-icon').html('<img class="workout-img" src="img/HookUppercut.gif">');
+				$('.exercise-icon').css('visibility','visible');
+
+				function prepareDelay7(){
+					$('.exercise-title').html('Prepare');
+					$('#timer').css('visibility','hidden');
+					$('.exercise-icon').html('<img class="workout-img" src="img/WidePushups.gif">');
+					timer = 1999;
+				};
 
 				function delay7(){
 					if (delaySwitch === true && cycle === 13){
 						clock = clearInterval(clock);
 						cycle = 14;
+						updateUser("cycle",cycle);
 						$('.exercise-title').html('Wide Pushups');
 						$('.exercise-icon').show();
+						timer = 0;
 						timer = 7000;
-						console.log("Delay 2");
-						clock = setInterval(workoutProgram, 1000);
-						$('.exercise-icon').html('<img class="workout-img" src="img/WidePushups.gif">');
+						clock = setInterval(workoutProgram, 999);
+						$('#timer').css('visibility','visible');
 						hideComplete = false;
-						$('.next-form').html('<form id="exercise-count"> <input id="widecount2" type="number" name="widecount"></form>')
-						$('.next').html('<a class="exercise15 next-btn" href="timer.html">Save</a>');
+						$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
+					    $('.next-form').append('<form id="exercise-count"> <input id="widecount2" type="number" name="widecount2"></form>');
+					    $('.next').appendTo ($('.next-form')).html('<a class="exercise15 next-btn" href="timer.html">Save</a>');
 						cycle = 15;
 						updateUser("cycle",cycle);
 						$(".exercise15.next-btn").click(function(){
 							widecount2Last = widecount2;
 							widecount2 = document.getElementById("widecount2").value;
-							console.log("I work");
 							updateUser("widecount2",widecount2);
 							updateUser("widecount2Last",widecount2Last);
 
@@ -626,50 +662,80 @@ $(document).ready(function(){
 					}
 			};
 			}else if ( cycle == 15 ){
-				console.log("level7");
-				delaySwitch = true;
+				$('#timer').css('visibility','visible');
 				timer = 7000;
+				cycle = 15;
+				updateUser("cycle",cycle);
+				var clock = setInterval(workoutProgram,999);
+				var delayWorkout = setTimeout(delay8,13000);
+				prepareDelay8 = setTimeout(prepareDelay8,8000);
+				delaySwitch = true;
+				hideComplete = true;
 				$('.exercise-title').html('Knee Strikes');
 				$('.exercise-icon').html('<img class="workout-img" src="img/Knees.gif">');
+				$('.exercise-icon').css('visibility','visible');
+
+				function prepareDelay8(){
+					$('.exercise-title').html('Prepare');
+					$('#timer').css('visibility','hidden');
+					$('.exercise-icon').html('<img class="workout-img" src="img/Dips.gif">');
+					timer = 1999;
+				};
 
 				function delay8(){
 					if(delaySwitch === true && cycle === 15){
-						clock = clearInterval(clock);
+					clock = clearInterval(clock);
 					cycle = 16;
+					updateUser("cycle",cycle);
 					$('.exercise-title').html('Dips');
 					$('.exercise-icon').show();
+					$('#timer').css('visibility','visible');
+					timer = 0;
 					timer = 7000;
-					clock = setInterval(workoutProgram, 1000);
-					$('.exercise-icon').html('<img class="workout-img" src="img/Dips.gif">');
+					clock = setInterval(workoutProgram, 999);
 					hideComplete = false;
-					$('.next-form').html('<form id="exercise-count"> <input id="dipcount2" type="number" name="dipcount"></form>')
-					$('.next').html('<a class="exercise17 next-btn" href="timer.html">Save</a>');
-					cycle = 17;
+
+					$('.next-form').prepend('<p class="good-job">Good Job! Record how many you did.</p>');
+					$('.next-form').append('<form id="exercise-count"> <input id="dipcount2" type="number" name="dipcount2"></form>')
+					$('.next').appendTo($('.next-form')).html('<a class="exercise17 next-btn" href="timer.html">SAVE</a>');
+					cycle = 99;
 					updateUser("cycle",cycle);
 					$(".exercise17.next-btn").click(function(){
 						dipcount2Last = dipcount2;
 						dipcount2 = document.getElementById("dipcount2").value;
-						updateUser("dipcount2", dipcount2);
+						updateUser("dipcount2",dipcount2);
 						updateUser("dipcount2Last",dipcount2Last);
 
-						cycle = 0; //Gotta make this 99 and have a finished script
+						cycle = 99; //Gotta make this 99 and have a finished script
 						updateUser("cycle",cycle);
-						hideComplete = false;
+						// hideComplete = false;
 						});
 				}else{
 					console.log('No delay');
 					}
 			};
-			}else if (cycle == 17){
-				hideComplete = false;
+			}else if (cycle == 99){
+				$('#timer').css('visibility','invisible');
+				$('.btn-row').show();
+				$('.done').css('display','block');
+				hideComplete = true;
+				$('.exercise-icon').hide();
+				$('.done').prepend('<p class="done-text">You Completed The Upper Body Routine!</p>');
+				$('.donearea').appendTo($('.done')).html('<a class="next-btn" href="index.html">DONE</a>');
+				$(".next-btn").click(function(){
+						runWorkout = 0;
+						updateUser("runWorkout",runWorkout)
+						clearTimeout();
+						clearInterval();
+					});
 			}else{
-			console.log("none");
+				console.log("none");
 			}
 
-		$('.exercise1').click(function(){
+		// $('.exercise1').click(function(){
 			
 			
-		});
+		// });
 
 		// $('.exercise2').click(function(){
 		// 	cycle = 2;
