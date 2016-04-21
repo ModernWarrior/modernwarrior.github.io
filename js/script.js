@@ -194,7 +194,7 @@ $(document).ready(function(){
 	 	pushupcount2Last = currentUser.pushupcount2Last;
 	}else(updateUser("pushupcount2Last",pushupcount2Last))
 	if(currentUser.militarycount2Last){
-	 	militarycount2 = currentUser.militarycount2Last;
+	 	militarycount2Last = currentUser.militarycount2Last;
 	}else(updateUser("militarycount2Last",militarycount2Last))
 	if(currentUser.widecount2Last){
 	 	widecount2Last = currentUser.widecount2Last;
