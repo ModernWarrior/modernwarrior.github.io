@@ -11,22 +11,12 @@
 	</head>
 	
 	<body>
-		<nav id="menu">
-			<h2 class="nav-item">User Info</h2>
-			<h2 class="nav-item"><a href="index.html">Home</a></h2>
-			<h2 class="nav-item"><a href="routines.html">Routines</a></h2>
-			<h2 class="nav-item"><a href="stats.html">Stats</a></h2>
-			<h2 class="nav-item"><a href="timer.html">Exercises</a></h2>
-			<h2 class="nav-item"><a href="settings.html">Settings</a></h2>
-			<h2 class="nav-item"><a href="about.html">About</a></h2>
-			<h2 class="nav-item"><a href="contact.html">Contact</a></h2>
-		</nav>
-		<main id="panel">
+		<nav id="panel">
 			<header>
-				<button class="toggle-button nohilite">☰</button>
-				<p class="nav-txt"></p>
+				<button class="back-btn nohilite"><a href="index.html"><img class="back-btn" src="img/ui/back-icon.png"></a></button>
+				<p class="nav-txt">Routines</p>
 			</header>
-		</main>
+		</nav>
 
 		<div class="container">
 			<div class="fader">
@@ -64,6 +54,24 @@
 		<script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
 
 		<script src="js/script.js"></script>
+		<script src="js/swiper.min.js"></script>
+
+	    <!-- Initialize Swiper -->
+	    <script>
+	    var swiper = new Swiper('.swiper-container', {
+	        scrollbar: '.swiper-scrollbar',
+	        scrollbarHide: true,
+	        slidesPerView: 'auto',
+	        centeredSlides: true,
+	        spaceBetween: 30,
+	        grabCursor: true
+	    });
+	    function reinitSwiper(swiper) {
+		  setTimeout(function () {
+		   swiper.reInit();
+		  }, 500);
+		}
+	    </script>
 		<script src="js/slideout.min.js"></script>
 		<script>
 		  var slideout = new Slideout({
@@ -78,5 +86,5 @@
         $(this).toggleClass('hilite nohilite');  	
       });
 		</script>
-	</body>
+		
 </html>

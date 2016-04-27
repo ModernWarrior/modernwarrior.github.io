@@ -109,6 +109,8 @@ textarea{
  	margin-right:0;
  }
 
+
+
 /****COLUMNS****/
 
 .col-2{
@@ -208,7 +210,7 @@ textarea{
 .card-text{
 	margin-top:1em;
 	font-size:1.4em; /*was 1.5em*/
-	font-weight:bold;
+	font-family:"source_sans_probold", serif;
 	color:black;
 	text-transform:uppercase;
 	background-color:#FFCC00;
@@ -336,6 +338,7 @@ a.back:hover{
 		position:absolute;
 		text-align:center;
 		background-color:rgba(0,0,0,.8);
+		display:none;
 	}
 
 	.home-btn{
@@ -359,12 +362,17 @@ a.back:hover{
 
 	/**COMPLETE FORM**/
 	.next-form{
-		margin:25vh auto;
 		width:75%;
 		max-width:400px;
 		background-color:#FFCC00;
 		padding-top:30px;
 		padding-bottom:40px;
+		position: fixed;
+  		top: 50%;
+  		left: 50%;
+  		-moz-transform: translate(-50%,-50%);
+  		-webkit-transform:translate(-50%,-50%);
+  		transform: translate(-50%, -50%);
 	}
 
 
@@ -392,11 +400,13 @@ a.back:hover{
 	}
 
 	.good-job{
-		font-size:18px;
-		color:#000;
-		font-weight:bold;
 		width:200px;
 		margin:0 auto;
+		padding-bottom:10px;
+		font-size:18px;
+		color:#000;
+		font-family:"source_sans_probold";
+		
 	}
 	/****COMPLETED****/
 	.done{
@@ -516,14 +526,107 @@ a.back:hover{
 		
 	}
 
-/****STAT PAGE****/
+/**** STAT PAGE****/
 .description{
 	padding-bottom:35px;
 }
 
-/**END STAT PAGE**/
 
-/**ABOUT**/
+/**** EXERCISE LIST ****/
+.upper-panel{
+	display:none;
+}
+
+.upper-list{
+	margin-top:75px;
+	margin:75px auto 0px;
+}
+
+.upper-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+
+}
+
+.lower-panel{
+	display:none;
+}
+
+.lower-list{
+	margin:0px auto 0px;
+}
+
+.lower-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+}
+
+.cardio-panel{
+	display:none;
+}
+
+.cardio-list{
+	margin:0px auto 0px;
+}
+
+.cardio-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+}
+
+.core-panel{
+	display:none;
+}
+
+.core-list{
+	margin:0px auto 0px;
+}
+
+.core-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+}
+
+.center-list{
+	text-align:center;
+	font-family:"source_sans_proregular", serif
+}
+
+.list-link{
+	background-color:#333;
+	color:#FFF;
+	border:1px solid #000;
+	display:block;
+	padding:20px 30px;
+	font-family:"source_sans_proregular", serif;
+	font-size:18px;
+}
+
+/***** ABOUT ****/
 
 #about{
 	padding:20px 20px;
@@ -588,6 +691,7 @@ form.contact-form{
 
 select{
 	margin-bottom:22px;
+	padding:10px;
 	color:#FFF;
 	border:2px solid #FFF;
 	border-radius:0;
@@ -605,7 +709,7 @@ textarea{
 	padding:15px;
 	background-color:#FFCC00;
 	color:#000;
-	font-weight:bold;
+	font-family:"source_sans_probold";
 	text-align:center;
 	display:block;
 	font-size:16px;
@@ -644,7 +748,7 @@ input.weight-txt{
 	.cntrl-img{width:44px;}
 }
 
-@media(min-width:768px){
+@media(min-width:600px){
 	p{font-size:16px;}
 	.stat-name{font-size:16px;}
 	.round1{font-size:16px;}
@@ -654,7 +758,7 @@ input.weight-txt{
 	.margin-right{margin-right:5%;}
 	img.front-icon{max-width:90%;/*height:300px;width:300px;*/}
 	.left-card{margin-right:2%;}
-	.card-text{margin-top:1em;font-size:2.1em;font-weight:bold;}
+	.card-text{margin-top:1em;font-size:2.1em;font-family:"source_sans_probold",serif;}
 	.home-top-row{margin-bottom:4%;}
 	/**ROUTINE**/
 	.exercise-icon{height:80%;}
@@ -663,12 +767,23 @@ input.weight-txt{
 	h2{font-size:2.5em;}
 	.cntrl-img{width:90px;margin-top:12px;}
 	.home-icon{max-width:275px;}
+	.next-form{padding-top:70px;padding-bottom:80px;max-width:600px;}
+	form{padding:45px;}
+	input{width:150px;height:120px;font-size:3.3em;}
+	a.next-btn{width:200px;padding:20px;font-size:1.9em;}
+	.good-job{font-size:24px;width:100%;}
+	/**STATS**/
+	.swiper-container{margin-left:-45%;/*width:100%;*/}
+	.flex p{font-size:21px;}
+	.target-body{font-size:2.5em;}
+
 	/**CONTACT**/
 	#contact{max-width:100%;}
 	p.form-txt{font-size:20px;margin-left:1px;}
 	.contact-form input{width:100%;max-width:900px;height:35px;}
 	textarea.msg-txt{width:101%;height:95px;max-width:900px;}
 	.cnt-btn{width:50%;margin-top:20px;margin-left:0px;font-size:25px;}
+	select{padding:20px;}
 	/**ABOUT**/
 	.about-txt{padding-left:15px;padding-right:15px;font-size:1.9em;}
 	.small-txt{padding-left:15px;padding-right:15px;font-size:1.3em;letter-spacing:0;}

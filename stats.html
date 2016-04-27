@@ -5,40 +5,23 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>prototype</title>
+		<title>Modern Warrior | Track Your Stats</title>
 		<link rel="stylesheet" href="css/swiper.css">
 		<link rel="stylesheet" href="css/stylealt.css">
 		<script   src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="   crossorigin="anonymous"></script>
 		<script src="js/script.js"></script>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/nav.css">
-		<!-- Link Swiper's CSS -->
-   		
-   		<style>
-
-    
-    </style>
 	</head>
 	
 
 	<body>
-		<nav id="menu">
-			<h2>Menu</h2>
-			<h2 class="nav-item"><a href="index.html">Home</a></h2>
-			<h2 class="nav-item"><a href="timer.html">Routines</a></h2>
-			<h2 class="nav-item"><a href="stats.html">Stats</a></h2>
-			<h2 class="nav-item"><a href="timer.html">Exercises</a></h2>
-			<h2 class="nav-item"><a href="settings.html">Settings</a></h2>
-			<h2 class="nav-item"><a href="about.html">About</a></h2>
-			<h2 class="nav-item"><a href="contact.html">Contact</a></h2>
-		</nav>
-		<main id="panel">
+		<nav id="panel" class="slideout-panel">
 			<header>
-				<button class="toggle-button nohilite">☰</button>
-				<p class="nav-txt">Stats</p>
-				<!--<h2>Panel</h2>-->
+				<div class="nav-btn"><button class="back-btn nohilite"><a href="index.html"><img class="back-btn" src="img/ui/back-icon.png"></a></button></div>
+				<div class="nav-text"><p class="nav-txt">Stats</p></div>
 			</header>
-		</main>
+		</nav>
 		<div class="container">
 			<h2 class="target-body">Upper Body</h2>
 			<!-- Swiper -->
@@ -101,6 +84,99 @@
 		        <div class="swiper-scrollbar"></div>
 		    </div>
 
+		    <h2 class="target-body">Lower Body</h2>
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	<div class="flex">
+		            		<div><h2 class="stat-title">Lunges</h2></div>
+		            		<div class="latest-txt">
+				            	<div><h2 class="week">Latest</h2></div>
+				            	<div><p class="round">Round 1:&nbsp;<span class="lungeround1"></span></p></div>
+				            	<div><p class="round">Round 2:&nbsp;<span class="lungeround2"></span></p></div>
+				            </div>
+			            	<div><h2 class="week">Previous</h2></div>
+			            	<div><p class="round">Round 1:&nbsp;<span class="lungeround1last"></span></p></div>
+			            	<div><p class="round">Round 2:&nbsp;<span class="lungeround2last"></span></p></div>
+			            </div>		
+					</div><!--END SLIDE-->
+					<div class="swiper-slide">
+		            	<div class="flex">
+		            		<div><h2 class="stat-title">Squats</h2></div>
+		            		<div class="latest-txt">
+				            	<div><h2 class="week">Latest</h2></div>
+				            	<div><p class="round">Round 1:&nbsp;<span class="squatround1"></span></p></div>
+				            	<div><p class="round">Round 2:&nbsp;<span class="squatround2"></span></p></div>
+				            </div>
+			            	<div><h2 class="week">Previous</h2></div>
+			            	<div><p class="round">Round 1:&nbsp;<span class="squatround1last"></span></p></div>
+			            	<div><p class="round">Round 2:&nbsp;<span class="squatround2last"></span></p></div>
+			            </div>		
+					</div><!--END SLIDE-->
+					<div class="swiper-slide">
+		            	<div class="flex">
+		            		<div><h2 class="stat-title">Calf Raises</h2></div>
+		            		<div class="latest-txt">
+				            	<div><h2 class="week">Latest</h2></div>
+				            	<div><p class="round">Round 1:&nbsp;<span class="calfraiseround1"></span></p></div>
+				            	<div><p class="round">Round 2:&nbsp;<span class="calfraiseround2"></span></p></div>
+				            </div>
+			            	<div><h2 class="week">Previous</h2></div>
+			            	<div><p class="round">Round 1:&nbsp;<span class="calfraiseround1last"></span></p></div>
+			            	<div><p class="round">Round 2:&nbsp;<span class="calfraiseround2last"></span></p></div>
+			            </div>		
+					</div><!--END SLIDE-->
+		      	</div>
+		     </div>
+
+		     <h2 class="target-body">Core</h2>
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide">
+		            	<div class="flex">
+		            		<div><h2 class="stat-title">Sit Ups</h2></div>
+		            		<div class="latest-txt">
+				            	<div><h2 class="week">Latest</h2></div>
+				            	<div><p class="round">Round 1:&nbsp;<span class="situpround1"></span></p></div>
+				            	<div><p class="round">Round 2:&nbsp;<span class="situpround2"></span></p></div>
+				            </div>
+			            	<div><h2 class="week">Previous</h2></div>
+			            	<div><p class="round">Round 1:&nbsp;<span class="situpround1last"></span></p></div>
+			            	<div><p class="round">Round 2:&nbsp;<span class="situpround2last"></span></p></div>
+			            </div>		
+					</div><!--END SLIDE-->
+					<div class="swiper-slide">
+		            	<div class="flex">
+		            		<div><h2 class="stat-title">Crunches</h2></div>
+		            		<div class="latest-txt">
+				            	<div><h2 class="week">Latest</h2></div>
+				            	<div><p class="round">Round 1:&nbsp;<span class="crunchround1"></span></p></div>
+				            	<div><p class="round">Round 2:&nbsp;<span class="crunchround2"></span></p></div>
+				            </div>
+			            	<div><h2 class="week">Previous</h2></div>
+			            	<div><p class="round">Round 1:&nbsp;<span class="crunchround1last"></span></p></div>
+			            	<div><p class="round">Round 2:&nbsp;<span class="crunchround2last"></span></p></div>
+			            </div>		
+					</div><!--END SLIDE-->
+					<div class="swiper-slide">
+		            	<div class="flex">
+		            		<div><h2 class="stat-title">Leg Raises</h2></div>
+		            		<div class="latest-txt">
+				            	<div><h2 class="week">Latest</h2></div>
+				            	<div><p class="round">Round 1:&nbsp;<span class="legraiseround1"></span></p></div>
+				            	<div><p class="round">Round 2:&nbsp;<span class="legraiseround2"></span></p></div>
+				            </div>
+			            	<div><h2 class="week">Previous</h2></div>
+			            	<div><p class="round">Round 1:&nbsp;<span class="legraiseround1last"></span></p></div>
+			            	<div><p class="round">Round 2:&nbsp;<span class="legraiseround2last"></span></p></div>
+			            </div>		
+					</div><!--END SLIDE-->
+		      	</div>
+		     </div>
+		        <!-- Add Scrollbar -->
+		        <div class="swiper-scrollbar"></div>
 				
 		</div><!--END CONTAINER-->
 			    <!-- Swiper JS -->

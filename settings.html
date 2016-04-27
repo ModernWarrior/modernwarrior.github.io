@@ -16,23 +16,13 @@
 	
 
 	<body>
-		<nav id="menu">
-			<h2>Menu</h2>
-			<h2 class="nav-item"><a href="index.html">Home</a></h2>
-			<h2 class="nav-item"><a class="upperbody" href="timer.html">Routines</a></h2>
-			<h2 class="nav-item"><a href="stats.html">Stats</a></h2>
-			<h2 class="nav-item"><a href="timer.html">Exercises</a></h2>
-			<h2 class="nav-item"><a href="settings.html">Settings</a></h2>
-			<h2 class="nav-item"><a href="about.html">About</a></h2>
-			<h2 class="nav-item"><a href="contact.html">Contact</a></h2>
-		</nav>
-		<main id="panel">
+		<nav id="panel" class="slideout-panel">
 			<header>
-				<button class="toggle-button nohilite">☰</button>
-				<p class="nav-txt">Settings</p>
-				<!--<h2>Panel</h2>-->
+				<div class="nav-btn"><button class="back-btn nohilite"><a href="index.html"><img class="back-btn" src="img/ui/back-icon.png"></a></button></div>
+				<div class="nav-text"><p class="nav-txt">Settings</p></div>
 			</header>
-		</main>
+		</nav>
+		
 		<div class="container">
 			<div id="contact">
 				<!-- <h1>Settings</h1> -->
@@ -73,6 +63,24 @@
 			</div>
 				
 		</div><!--END CONTAINER-->
+		 <script src="js/swiper.min.js"></script>
+
+	    <!-- Initialize Swiper -->
+	    <script>
+	    var swiper = new Swiper('.swiper-container', {
+	        scrollbar: '.swiper-scrollbar',
+	        scrollbarHide: true,
+	        slidesPerView: 'auto',
+	        centeredSlides: true,
+	        spaceBetween: 30,
+	        grabCursor: true
+	    });
+	    function reinitSwiper(swiper) {
+		  setTimeout(function () {
+		   swiper.reInit();
+		  }, 500);
+		}
+	    </script>
 		<script src="js/slideout.min.js"></script>
 		<script>
 		  var slideout = new Slideout({

@@ -45,6 +45,16 @@
   float:left;
 }
 
+.back-btn{
+  width:45px;
+  margin-left:5px;
+  float:left;
+}
+
+.back-btn:hover,.back-btn:active{
+  opacity:.8;
+}
+
 .hilite{
   background-color:#FFCC00;
   color:#000;
@@ -70,17 +80,42 @@
 .nav-txt{
   padding-top:11px;
   font-size:1.4em;
-  font-weight:bold;
+  font-family:"source_sans_probold",serif;
   text-transform:uppercase;
 }
 
-p.nav-txt{text-align:left;margin-left:45%;}
+p.nav-txt{
+  text-align:center;
+  margin-left:-5px;
+}
 
-@media(min-width:768px){
-  p.nav-txt{font-size:2.1em;padding-top:30px;}
-  p.nav-txt{text-align:left;margin-left:46%;}
+  /*margin-left:45%;*/
+/*  margin-left:42%;
+*/
+
+.nav-text{
+  width:85%;
+  margin-left:-5px;
+/*  margin-left:-45px;
+*/  text-align:center;
+  display:inline-block;
+}
+
+.nav-btn{
+  width:15%;
+  float:left;
+  display:inline-block;
+}
+
+
+
+@media(min-width:600px){
+  p.nav-txt{font-size:2.1em;/*Was-5px*/margin-left:-18px;padding-top:30px;}
+  .nav-text{margin-left:-18px;}
+  
   .slideout-panel{height:90px;}
   .toggle-button{height:90px;width:90px;margin-left:20px;font-size:40px;}
+  .back-btn{/*Was 90px*/height:77px;width:77px;margin-left:10px;/*NEW*/margin-top:4px;}
   .slideout-menu{max-width:600px;}
 /*  .front-card{max-width:250px;}
 card-text{font-size:1.9em;}*/

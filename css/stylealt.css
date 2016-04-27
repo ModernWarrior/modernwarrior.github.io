@@ -102,7 +102,7 @@ textarea{
 }
  
 .tight-space{
-	letter-spacing:-.03em;
+	letter-spacing:-.05em;
 } 
 
 /****COLUMNS****/
@@ -202,14 +202,13 @@ textarea{
 .card-text{
 	margin-top:1em;
 	font-size:1.4em; /*was 1.5em*/
-	font-weight:bold;
+	font-family:"source_sans_probold", serif;
 	color:black;
 	text-transform:uppercase;
 	background-color:#FFCC00;
 	padding:10px 0px 10px;
 
 }
-
 img.front-icon {
 	max-width:80%;
 	margin-bottom:30px;
@@ -226,10 +225,10 @@ img.front-icon {
 }
 
 .swiper-container {
-        width: 105%;
+       /* width: 105%;*/
         height: 325px;
         margin: 20px auto;
-        margin-left:-12%;
+        margin-left:-15%;
         z-index:0;
   }
     .swiper-slide {
@@ -402,6 +401,7 @@ a.back:hover{
 		position:absolute;
 		text-align:center;
 		background-color:rgba(0,0,0,.8);
+		display:none;
 	}
 
 	.home-btn{
@@ -425,12 +425,17 @@ a.back:hover{
 
 	/**COMPLETE FORM**/
 	.next-form{
-		margin:25vh auto;
+
 		width:75%;
 		max-width:400px;
 		background-color:#FFCC00;
 		padding-top:30px;
 		padding-bottom:40px;
+		top: 50%;
+  		left: 50%;
+  		-moz-transform: translate(-50%,-50%);
+  		-webkit-transform:translate(-50%,-50%);
+  		transform: translate(-50%, -50%);
 	}
 
 
@@ -508,6 +513,8 @@ a.back:hover{
 		font-size:18px;
 		color:#000;
 		font-weight:bold;
+		width:200px;
+		margin:0 auto;
 	}
 
 	/****CLOCK ROW****/
@@ -588,7 +595,94 @@ a.back:hover{
 	padding-bottom:35px;
 }
 
-/**END STAT PAGE**/
+.target-body{
+	font-size:1.7em;
+	font-family:"source_sans_probold";
+
+}
+
+/**** EXERCISE LIST ****/
+.upper-panel{
+	display:none;
+}
+
+.upper-list{
+	margin-top:75px;
+	margin:75px auto 0px;
+}
+
+.upper-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+
+}
+
+.lower-panel{
+	display:none;
+}
+
+.lower-list{
+	margin:0px auto 0px;
+}
+
+.lower-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+}
+
+.cardio-panel{
+	display:none;
+}
+
+.cardio-list{
+	margin:0px auto 0px;
+}
+
+.cardio-control{
+	width:100%;
+	padding:15px;
+	background-color:#FFCC00;
+	color:#000;
+	font-size:21px;
+	text-align:center;
+	font-family:"source_sans_probold", serif;
+	text-transform:uppercase;
+}
+
+.center-list{
+	text-align:center;
+	font-family:"source_sans_proregular", serif
+}
+
+.list-link{
+	background-color:#333;
+	color:#FFF;
+	border:1px solid #000;
+	display:block;
+	padding:20px 30px;
+	font-family:"source_sans_proregular", serif;
+	font-size:18px;
+}
+/****EXERCISE DETAIL****/
+.instructions{
+	padding:15px 15px 50px;
+}
+
+.instruct-img{
+	max-width:100%;
+}
 
 /**ABOUT**/
 
@@ -741,6 +835,7 @@ form.contact-form{
 
 select{
 	margin-bottom:22px;
+	padding:5px;
 	color:#FFF;
 	border:2px solid #FFF;
 	border-radius:0;
@@ -760,7 +855,7 @@ textarea{
 	padding:15px;
 	background-color:#FFCC00;
 	color:#000;
-	font-weight:bold;
+	font-family:"source_sans_probold",serif;
 	text-align:center;
 	display:block;
 	font-size:16px;
@@ -798,7 +893,7 @@ textarea{
     .cntrl-img{width:50px;}
 }
 
-@media(min-width:768px){
+@media(min-width:600px){
 	p{font-size:16px;}
 	.stat-name{font-size:16px;}
 	.round1{font-size:16px;}
@@ -807,7 +902,7 @@ textarea{
 	.front-card{padding:30px 0px 0px};
 	img.front-icon{max-width:100%;/*height:300px;width:300px;*/}
 	.left-card{margin-right:2%;}
-	.card-text{margin-top:1em;font-size:2.1em;font-weight:bold;}
+	.card-text{margin-top:1em;font-size:2.1em;font-family:"source_sans_probold",serif;}
 	/**ROUTINE**/
 	.exercise-icon{height:80%;}
 	.exercise-text{font-size:1.8em;}
@@ -817,8 +912,9 @@ textarea{
 	h2{font-size:2.5em;}
 	.cntrl-img{width:90px;margin-top:30px;}
 	/**STATS**/
-	.swiper-container{margin-left:-20%;width:100%;}
+	.swiper-container{margin-left:-45%;/*width:100%;*/}
 	.flex p{font-size:21px;}
+	.target-body{font-size:2.5em;}
 	/**SETTINGS**/
 	.setting-sub{
 		text-align:left;
@@ -836,6 +932,7 @@ textarea{
 	/**ABOUT**/
 	.about-txt{padding-left:15px;padding-right:15px;font-size:1.9em;}
 	.small-txt{padding-left:15px;padding-right:15px;font-size:1.3em;letter-spacing:0;}
+	select{padding:10px;font-size:24px;}
 }
 
 
